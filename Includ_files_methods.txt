@@ -1,0 +1,15 @@
+pour les fichiers html : 
+
+<iframe src="includes/menu.html" frameborder="0" scrolling="no" width="100%" height="100"></iframe>
+
+<!-- le reste du contenu de votre page -->
+
+pour les fichiers php : 
+
+<?php
+// inclure le fichier du menu
+include 'includes/menu.php';
+// ou require ...
+?>
+
+<!-- le reste du contenu de votre page -->

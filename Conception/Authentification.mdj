@@ -1614,7 +1614,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGIH4A20ideyUQ="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -1622,7 +1623,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGIH4A20ideyUQ="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				}
 			]
 		},
@@ -2584,7 +2586,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGIH+TgcC7JnNM="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -2592,7 +2595,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGIH+TgcC7JnNM="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				}
 			]
 		},
@@ -2925,7 +2929,7 @@
 												"$ref": "AAAAAAGIH+ouCjBRxYk="
 											},
 											"edgePosition": 1,
-											"text": "1 : Entrer information d authentification"
+											"text": "Entrer information d authentification"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -3036,7 +3040,7 @@
 												"$ref": "AAAAAAGIH+q2EDBnn3I="
 											},
 											"edgePosition": 1,
-											"text": "2 : vérifier informations"
+											"text": "vérifier informations"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -3349,7 +3353,7 @@
 												"$ref": "AAAAAAGIH+vF6DCxH5o="
 											},
 											"edgePosition": 1,
-											"text": "3 : afficher message d erreur"
+											"text": "afficher message d erreur"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -3562,7 +3566,7 @@
 												"$ref": "AAAAAAGIH+4CnzEWMzA="
 											},
 											"edgePosition": 1,
-											"text": "4 : rediriger vers page mot de passe oubliés"
+											"text": "rediriger vers page mot de passe oubliés"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -3775,7 +3779,7 @@
 												"$ref": "AAAAAAGIH/Eb4THJSzQ="
 											},
 											"edgePosition": 1,
-											"text": "5 : Rediriger vers page reinitialiser mdp"
+											"text": "Rediriger vers page reinitialiser mdp"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -4055,7 +4059,7 @@
 												"$ref": "AAAAAAGIH/OTLjIflJA="
 											},
 											"edgePosition": 1,
-											"text": "6 : rediriger vers page d acceuil RP"
+											"text": "rediriger vers page d acceuil RP"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -4167,7 +4171,7 @@
 												"$ref": "AAAAAAGIH/Px7DI3xHg="
 											},
 											"edgePosition": 1,
-											"text": "7 : rediriger bvers page d acceuil RH"
+											"text": "rediriger bvers page d acceuil RH"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -4279,7 +4283,7 @@
 												"$ref": "AAAAAAGIH/Qh9DJNAB8="
 											},
 											"edgePosition": 1,
-											"text": "8 : rediriger vers page d acceuil employe"
+											"text": "rediriger vers page d acceuil employe"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -4361,7 +4365,8 @@
 										"$ref": "AAAAAAGIH/Qh9TJRGKc="
 									}
 								}
-							]
+							],
+							"showSequenceNumber": false
 						}
 					],
 					"messages": [
@@ -4635,7 +4640,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGIH+ikgy+eiFw="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -4643,7 +4649,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGIH+ikgy+eiFw="
 					},
-					"name": "Role2"
+					"name": "Role2",
+					"type": ""
 				}
 			]
 		}
