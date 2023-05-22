@@ -25,6 +25,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,17 +34,19 @@
     <link rel="stylesheet" href="../projet_web/css/bootstrap.css">
     <link rel="stylesheet" href="../projet_web/includes/style.css">
 </head>
+
 <body style="background-color: #D3D3D3;">
     <?php
         include('../projet_web/includes/menu.html');
     ?>
     <div class="row">
-      <div class="col-md-8">
-        <img src="../projet_web/images/img22.png" alt="" id="imgauth" style="position: absolute; top: 100px; left: 100px; width: 50%; height:100%;">
-      </div>  
-      <?php
+        <div class="col-md-8">
+            <img src="../projet_web/images/img22.png" alt="" id="imgauth"
+                style="position: absolute; top: 100px; left: 100px; width: 50%; height:100%;">
+        </div>
+        <?php
         include('../projet_web/includes/form.html');
-      ?> 
+      ?>
     </div>
 </body>
 <?php
@@ -55,10 +58,10 @@
             header('location:reinit.php');
         }
         ?>
-            <div>
-                <p class="errauth">Verifiez vos coordonnées d'authentification!!</p>
-            </div>
-        <?php 
+<div>
+    <p class="errauth">Verifiez vos coordonnées d'authentification!!</p>
+</div>
+<?php 
     }?>
-    
+
 </html>
