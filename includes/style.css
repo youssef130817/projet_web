@@ -4,15 +4,14 @@
 #cont{
     border: solid rgb(18, 223, 255);
 }
-#card{
-    border-radius: 1rem;
-}
+
 #mdpoublie{
     color: aliceblue;
 }
-#menu{
+.menu{
     width: 100%;
-    height: 50%;
+    height: 100%;
+    background-color: #083a59;
 }
 .errauth{
     text-align: center;
