@@ -48,6 +48,7 @@ nav ul li a{
     transition: max-height 0.5s;
 }
 .sub-menu-wrap.open-menu{
+    z-index: 1;
     max-height: 400px;
 }
 .sub-menu{
