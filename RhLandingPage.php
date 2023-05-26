@@ -4,9 +4,6 @@
 <head>
     <link rel="stylesheet" href="includes/RhMenu.css">
     <link rel="stylesheet" href="includes/RhLandingPage.css">
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -18,14 +15,12 @@
         <div class="row">
             <a href="#">
                 <div class="card">
-                    <h3 class="card-heading">card heading</h3>
-                    <p class="card-body">card body</p>
+                    <h3 class="card-heading">Mes Heurs Supplémentaires</h3>
                 </div>
             </a>
             <a href="">
                 <div class="card">
-                    <h3 class="card-heading">card heading</h3>
-                    <p class="card-body">card body</p>
+                    <h3 class="card-heading">Mes Congés</h3>
                 </div>
             </a>
 
@@ -33,18 +28,14 @@
         <div class="row">
             <a href="">
                 <div class="card">
-                    <h3 class="card-heading">card heading</h3>
-                    <p class="card-body">card body</p>
+                    <h3 class="card-heading">Mes Absences</h3>
                 </div>
             </a>
             <a href="">
                 <div class="card">
-                    <h3 class="card-heading">card heading</h3>
-                    <p class="card-body">card body</p>
+                    <h3 class="card-heading">Mes Bultins</h3>
                 </div>
             </a>
-
-
         </div>
     </div>
 </body>
