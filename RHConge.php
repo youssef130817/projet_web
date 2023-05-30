@@ -9,11 +9,13 @@
 <body>
     <?php
     include('includes/RhMenu.html');
+    
     ?>
     <form>
         <main class="table">
             <section class="table-header">
                 <h3>Demandes de congés</h3>
+
             </section>
             <section class="table-body">
                 <table>
