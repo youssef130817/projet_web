@@ -38,6 +38,11 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.error{
+    color: red;
+    text-align: center;
+    display: none;
+}
 main.table{
     position: relative;
     top: 20px;
@@ -55,6 +60,7 @@ main.table{
     height: 10%;
     position: relative;
     left: 40px;
+    padding: 10px;
 }
 .table-body{
     width: 95%;
