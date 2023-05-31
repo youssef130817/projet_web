@@ -28,13 +28,16 @@ pass.addEventListener('keyup', function() {
 })
 
 //ajouter un evenemnt pour boutton entrer pour vérifier l'email et le mot de passe 
-enter.addEventListener('click', function(event) {
+enter.addEventListener('click', function(event) 
+{
     let isValidE = Eregex.test(user.value);
     let isValidP = Pregex.test(pass.value);
-    event.preventDefault();
-    if (!isValidE || !isValidP) {
+
+    if (!isValidE || !isValidP) 
+    {    
+        // event.preventDefault();
         errmessage.style.display = 'block';
         errmessage.textContent = 'veuillez remplir les champs avec des informations valides !!';
-    } else
-        errmessage.style.display = 'none';
+    } 
+    else errmessage.style.display = 'none';
 })
