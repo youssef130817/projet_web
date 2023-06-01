@@ -15,7 +15,6 @@
         <main class="table">
             <section class="table-header">
                 <h3>Demandes de congés</h3>
-
             </section>
             <section class="table-body">
                 <table>
@@ -33,7 +32,7 @@
                         <?php
                         require 'connect.php';
                         $state = 'en cours';
-                        $result = $bdd->query("SELECT * FROM `conges`, `employe` WHERE conges.ID_EMP = employe.ID_EMP AND conges.STATUT_CONGES='$state'");
+                        $result = $bdd->query("SELECT * FROM `conges`, `employee` WHERE conges.id_emp = employee.id_emp AND conges.statut_cg='$state'");
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                             echo '<tr>';
                             echo '<td>' . $row['NOM_EMP'] . '</td>';
