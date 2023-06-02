@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('includes/RhMenu.html');
 if (!isset($_SESSION['Auth'])) {
     header('location: index.php');
 }
@@ -27,12 +28,11 @@ echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
             </section>
             <section class="table-body">
                 <table>
+
                     <thead>
                         <tr>
                             <td>Nom</td>
                             <td>Prénom</td>
-                            <td>Date Début</td>
-                            <td>Date Fin</td>
                             <td>Etat</td>
                         </tr>
                     </thead>
@@ -40,19 +40,13 @@ echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
                         <?php
                         require 'connect.php';
                         $state = 'en cours';
-                        $result = $bdd->query("SELECT * FROM `conges`, `employe` WHERE conges.ID_EMP = employe.ID_EMP AND conges.STATUT_CONGES='$state'");
+                        $result = $bdd->query("SELECT * FROM `reclamation`, `employe` WHERE reclamation.ID_EMP = employe.ID_EMP  AND reclamation.RESPO_DESTINE='0'");
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                            echo '<tr>';
+                            echo '<tr class="clickable-row" data-href="http://localhost/projet_web/TraiterReclamation.php/?idrec=' . $row["ID_REC"] . '&dest=' . $row["RESPO_DESTINE"] . '&emp=' . $row["ID_EMP"] . '">';
                             echo '<td>' . $row['NOM_EMP'] . '</td>';
                             echo '<td>' . $row['PRENOM_EMP'] . '</td>';
-                            echo '<td>' . $row['DATE_DEBUT_CONGE'] . '</td>';
-                            echo '<td>' . $row['DATE_FIN_CONGE'] . '</td>';
-                            echo ' <form  action="actualiser.php "method="post">';
+                            echo ' <form  action="TraiterReclamation.php "method="post">';
                             echo '  <td>
-                                        <input type="submit" name="accepter" id="btnA" value="">
-                                        <input type="submit" name="reffuser" id="btnR" value="">
-                                        <label class="label_coment" for="comment">Commentaire</label>
-                                        <p class="error"></p>
                                         <input type="hidden" name="idc" value="' . $row["ID_EMP"] . '">
                                     </td>';
                             echo '</form>';
@@ -65,6 +59,13 @@ echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
             </section>
         </main>
     </form>
+    <script>
+        document.querySelectorAll('.clickable-row').forEach(row => {
+            row.addEventListener('click', () => {
+                window.location = row.dataset.href;
+            });
+        });
+    </script>
 </body>
 
 </html>

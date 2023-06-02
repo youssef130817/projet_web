@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['ajouter'])) {
     session_start();
-    require_once("connect.php");
+    require("connect.php");
 
     $stm = $bdd->prepare("INSERT INTO entreprise (NOM_ENT, ADRESSE_ENT, NUM_CNSS_ENT, ESTMERE) VALUES (:nom, :adresse, :numcnss, :estmere)");
     $stm->bindParam(':nom', $_POST['nom']);
@@ -17,4 +17,3 @@ if (isset($_POST['ajouter'])) {
 } else {
     header("location: ajouterEntreprise.php");
 }
-?>
