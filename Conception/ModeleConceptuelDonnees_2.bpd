@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{ED6B8AF6-68B8-4991-B5CD-15109C813FAF}" Label="" LastModificationDate="1685541464" Name="ModeleConceptuelDonnees_2" Objects="209" Symbols="27" Target="MySQL 5.0" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{ED6B8AF6-68B8-4991-B5CD-15109C813FAF}" Label="" LastModificationDate="1685371109" Name="ModeleConceptuelDonnees_2" Objects="209" Symbols="27" Target="MySQL 5.0" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" signature="PDM_DATA_MODEL_XML" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1966,9 +1966,8 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o34">
-<a:ModificationDate>1685541464</a:ModificationDate>
-<a:Rect>((31081,55463), (56714,55913))</a:Rect>
-<a:ListOfPoints>((31081,55688),(56714,55688))</a:ListOfPoints>
+<a:Rect>((31081,55558), (56714,56558))</a:Rect>
+<a:ListOfPoints>((31081,56058),(56714,56058))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -1987,9 +1986,8 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o38">
-<a:ModificationDate>1685541464</a:ModificationDate>
-<a:Rect>((4724,54915), (31081,55365))</a:Rect>
-<a:ListOfPoints>((31081,55140),(4724,55140))</a:ListOfPoints>
+<a:Rect>((4724,55097), (31081,56097))</a:Rect>
+<a:ListOfPoints>((31081,55597),(4724,55597))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16744576</a:LineColor>
@@ -2280,9 +2278,8 @@ LABL 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:TableSymbol>
 <o:TableSymbol Id="o35">
-<a:ModificationDate>1685541464</a:ModificationDate>
 <a:IconMode>-1</a:IconMode>
-<a:Rect>((19488,51842), (42686,58024))</a:Rect>
+<a:Rect>((19488,53531), (42686,58025))</a:Rect>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>16744576</a:LineColor>
 <a:FillColor>16765136</a:FillColor>
@@ -2300,7 +2297,6 @@ LABL 0 Arial,8,N</a:FontList>
 <a:BrushStyle>6</a:BrushStyle>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
-<a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
 <o:Table Ref="o56"/>
 </c:Object>
