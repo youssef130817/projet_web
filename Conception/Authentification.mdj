@@ -2738,9 +2738,9 @@
 											"font": "Arial;13;0",
 											"left": 227.51904296875,
 											"top": 261,
-											"width": 122.3798828125,
+											"width": 132.50439453125,
 											"height": 13,
-											"text": "information correctes"
+											"text": "login et mdp  correctes"
 										},
 										{
 											"_type": "LabelView",
@@ -3054,16 +3054,16 @@
 											},
 											"font": "Arial;13;0",
 											"left": 288,
-											"top": 289,
+											"top": 208,
 											"width": 223.29150390625,
 											"height": 13,
-											"alpha": -1.5291536090481288,
-											"distance": 72.06247289678588,
+											"alpha": 1.2793386148860892,
+											"distance": 10.44030650891055,
 											"hostEdge": {
 												"$ref": "AAAAAAGIH+ouCjBRxYk="
 											},
 											"edgePosition": 1,
-											"text": "Entrer information d authentification"
+											"text": "Entrer login et mdp"
 										},
 										{
 											"_type": "EdgeLabelView",
@@ -3164,12 +3164,12 @@
 												"$ref": "AAAAAAGIjZzU0fL9qjo="
 											},
 											"font": "Arial;13;0",
-											"left": 551,
-											"top": 227,
+											"left": 614,
+											"top": 240,
 											"width": 166.1943359375,
 											"height": 13,
-											"alpha": 1.5707963267948966,
-											"distance": 10,
+											"alpha": 1.4078688898703386,
+											"distance": 73.97972695272672,
 											"hostEdge": {
 												"$ref": "AAAAAAGIjZzU0fL++JE="
 											},
@@ -3991,9 +3991,9 @@
 											"font": "Arial;13;0",
 											"left": 189.07177734375,
 											"top": 109,
-											"width": 120.95166015625,
+											"width": 128.892578125,
 											"height": 13,
-											"text": "modifier lot de passe"
+											"text": "modifier mot de passe"
 										},
 										{
 											"_type": "LabelView",
@@ -4323,7 +4323,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIH+ikhC+f3NI="
 							},
-							"name": "Entrer information d authentification",
+							"name": "Entrer login et mdp",
 							"source": {
 								"$ref": "AAAAAAGIH+jfAy+wgcw="
 							},
@@ -4488,7 +4488,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIH+ikhC+f3NI="
 							},
-							"name": "information correctes",
+							"name": "login et mdp  correctes",
 							"interactionOperator": "break",
 							"operands": [
 								{
@@ -4583,7 +4583,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIH+ikhC+f3NI="
 							},
-							"name": "modifier lot de passe",
+							"name": "modifier mot de passe",
 							"interactionOperator": "opt",
 							"operands": [
 								{
