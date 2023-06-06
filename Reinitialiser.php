@@ -6,9 +6,9 @@ if (isset($_POST['btn'])) {
     $npwd2 = $_POST['pwd2'];
     $login = $_GET['name'];
     if ($npwd1 == $npwd2) {
-        $req = $bdd->prepare("UPDATE `comptes` set password='$npwd2' WHERE login='$login'");
+        $req = $bdd->prepare("UPDATE `comptes` set motdepasse='$npwd2',etat=1 WHERE username='$login'");
         $req->execute();
-        header('location: index.php');
+        header('location:http://localhost:8080/projet_web/index.php');
     }
 }
 

@@ -15,10 +15,9 @@ if (isset($_POST['log'])) {
         $res2 = $req2->fetch(PDO::FETCH_ASSOC);
         $_SESSION['Cnx'] = $result;
         $_SESSION['Auth'] = $res2;
-        print_r($res2);
         unset($_SESSION['cmpt']);
         //si l'utilisateur n a pas encore modifié le mdp
-        if ($result['etat'] == '0') header('location:Reinitialiser.php');
+        if ($result['etat'] == '0') header('location:Reinitialiser.php/?name='.$l.'');
         else {
             if ($result['type'] == '0')  header('location:emp.php');
             if ($result['type'] == '1') header('location:RhLandingPage.php?');
@@ -61,7 +60,8 @@ if (isset($_POST['log'])) {
 </body>
 <?php
 if (isset($e)) {
-    if ($_SESSION['cmpt'] == 3) {
+    if ($_SESSION['cmpt'] == 3)
+    {
         unset($_SESSION['cmpt']);
         header('location:reinit.php');
     }

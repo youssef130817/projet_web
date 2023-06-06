@@ -44,7 +44,7 @@
     btn.addEventListener('click', function(e) {
         e.preventDefault()
         var email = document.getElementById('email').value;
-        var mess = "pour réintialiser votre mot de passe cliquer sur le lien suivant : http://localhost/projet_web/reinitialiser.php/?name=" + email;
+        var mess = "pour réintialiser votre mot de passe cliquer sur le lien suivant : http://localhost:8080/projet_web/Reinitialiser.php/?name=" + email;
         Email.send({
             SecureToken: "59299d25-c73d-4f10-b7df-9d1c7bc6ca46",
             To: email,
@@ -55,6 +55,7 @@
             message => alert(message)
         );
     })
+    
 </script>
 
 </html>
