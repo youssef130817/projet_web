@@ -10,11 +10,10 @@
     <?php
     session_start();
     include('includes/RhMenu.html');
-    if(!isset($_SESSION['Auth']))
-    {
+    if (!isset($_SESSION['Auth'])) {
         header('location: index.php');
     }
-    echo "<p>Bonjour ".$_SESSION['Auth']['nom_emp']." </p>";
+    echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
     // print_r($_SESSION);
     ?>
     <div class="card-container">

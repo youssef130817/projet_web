@@ -42,17 +42,17 @@ echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
                         $result = $bdd->query("SELECT * FROM `conges`, `employee` WHERE conges.id_emp = employee.id_emp AND conges.statut_cg='$state'");
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                             echo '<tr>';
-                            echo '<td>' . $row['NOM_EMP'] . '</td>';
-                            echo '<td>' . $row['PRENOM_EMP'] . '</td>';
-                            echo '<td>' . $row['DATE_DEBUT_CONGE'] . '</td>';
-                            echo '<td>' . $row['DATE_FIN_CONGE'] . '</td>';
+                            echo '<td>' . $row['nom_emp'] . '</td>';
+                            echo '<td>' . $row['prenom_emp'] . '</td>';
+                            echo '<td>' . $row['date_debut_cg'] . '</td>';
+                            echo '<td>' . $row['date_fin_cg'] . '</td>';
                             echo ' <form  action="actualiser.php "method="post">';
                             echo '  <td>
                                         <input type="submit" name="accepter" id="btnA" value="">
                                         <input type="submit" name="reffuser" id="btnR" value="">
                                         <label class="label_coment" for="comment">Commentaire</label>
                                         <p class="error"></p>
-                                        <input type="hidden" name="idc" value="' . $row["ID_EMP"] . '">
+                                        <input type="hidden" name="idc" value="' . $row["id_emp"] . '">
                                     </td>';
                             echo '</form>';
                             echo '</tr>';
