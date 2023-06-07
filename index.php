@@ -9,8 +9,10 @@ if (isset($_POST['log'])) {
     $req = $bdd->prepare("SELECT * from comptes WHERE username='$l' AND motdepasse='$p'");
     $req->execute();
     $result = $req->fetch(PDO::FETCH_ASSOC);
-    if ($req->rowCount() == 1) {
-        $req2 = $bdd->prepare("SELECT nom_emp FROM employee,comptes WHERE employee.id_emp = comptes.id_emp");
+    if ($req->rowCount() == 1) 
+    {
+        $var=$result['id_emp'];
+        $req2 = $bdd->prepare("SELECT nom_emp FROM employee WHERE id_emp = '$var'");
         // $result = $bdd->query("SELECT * FROM `conges`, `employe` WHERE conges.ID_EMP = employe.ID_EMP AND conges.STATUT_CONGES='$state'");
         $req2->execute();
         $res2 = $req2->fetch(PDO::FETCH_ASSOC);
