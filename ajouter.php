@@ -1,13 +1,12 @@
 <?php
-if (isset($_POST['ajouter'])) {
+if (isset($_POST['ajouterent'])) {
     session_start();
     require("connect.php");
 
-    $stm = $bdd->prepare("INSERT INTO entreprise (NOM_ENT, ADRESSE_ENT, NUM_CNSS_ENT, ESTMERE) VALUES (:nom, :adresse, :numcnss, :estmere)");
-    $stm->bindParam(':nom', $_POST['nom']);
-    $stm->bindParam(':adresse', $_POST['adresse']);
-    $stm->bindParam(':numcnss', $_POST['numcnss']);
-    $stm->bindParam(':estmere', $_POST['estmere']);
+    $stm = $bdd->prepare("INSERT INTO entreprise (nom_ent, adresse_ent, num_cnss_ent) VALUES (:nom, :adresse, :numcnss)");
+    $stm->bindParam(':nom', $_POST['noment']);
+    $stm->bindParam(':adresse', $_POST['adresseent']);
+    $stm->bindParam(':numcnss', $_POST['numcnssent']);
     $stm->execute();
 
     if ($stm->rowCount()) {

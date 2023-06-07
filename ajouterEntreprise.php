@@ -11,26 +11,30 @@
     <title>Ajouter Entreprise</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="includes/ajoutemp.css">
+
   </head>
   <body>
-    <form class="form-container" action="ajouter.php" method="POST">
-      <h2>Ajouter Entreprise</h2>  
-      <table>
-        <tr>
-          <input type="text" placeholder="Nom" name="noment" />
-        </tr>
-        <tr>
-        <input type="text" id="addres" placeholder="Adresse"name="adresseent" />
-        </tr>
-        <tr>
-        <input type="text" placeholder="Numéro CNSS"name="numcnssent" />
-        </tr>
-        <tr>
-          <td>Groupe</td>
-          <td>
-            <select name="selection" id="">
-              <?php
+  <body>
+  <div class="page-wrapper p-t-100 p-b-100 font-robo">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-1">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Informations de l'entreprise</h2>
+                    <form method="POST" action="ajouter.php">
+                        <div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="Nom" name="noment">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="Adresse" name="adresseent">
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-1" type="text" placeholder="Numéro CNSS" name="numcnssent">
+                        </div>
+                        <div class="input-group">
+                        <select name="selection" id="">
+                    <?php
                 $mareq=$bdd->prepare("SELECT DISTINCT groupe.Libelle_gr,groupe.id_groupe FROM groupe,entreprise WHERE entreprise.id_gr=groupe.id_groupe");
                 $mareq->execute();
                 $mareqresult=$mareq->fetchALL(PDO::FETCH_ASSOC);
@@ -41,24 +45,24 @@
                 }
               ?>
             </select>
-          </td>
-        </tr>
-        <tr>
-          <button name="ajouterent"> Ajouter <i class="fa-solid fa-paper-plane"></i></button>
-        </tr>
-        <?php
-            if($_GET['ent_ajoute'])
+                        </div>
+                        
+                        <div class="input-group">
+                            <input class="input--style-1" type="file" placeholder="Selectionner une image de l'entreprise" name="img">
+                        </div>
+                        <div class="p-t-20">
+                            <button class="btn btn--radius btn--green" type="submit" name="ajouterent">Ajouter</button>
+                        </div>
+                        
+            <!-- if($_GET['ent_ajoute'])
             {
               echo "<div><p>Entreprise ajoutée avec succés </p> <img src='Accepter.png' alt=''></div>";
-            }
-        ?>
-      </table>
-      
-      <!-- <input type="text" placeholder="Type Entreprise" name="estmere"/> -->
-      
-    </form>
-    <!-- <footer>
-      <a href="">XXXXXX</a>
-    </footer> -->
-  </body>
+            } -->
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </html>

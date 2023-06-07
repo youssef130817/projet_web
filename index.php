@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('connect.php');
-include('includes/RhMenu.html');
+// include('includes/RhMenu.html');
 if (!isset($_SESSION['cmpt'])) $_SESSION['cmpt'] = 0;
 if (isset($_POST['log'])) {
     $l = $_POST['us'];
