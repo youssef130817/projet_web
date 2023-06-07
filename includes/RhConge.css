@@ -34,7 +34,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url("../images/back2.jpg");
+    background-image:url("../assets/img/cta-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -43,12 +43,8 @@ body{
     text-align: center;
     display: none;
 }
-main.table{
+.table{
     position: relative;
-    top: 20px;
-    left: 150px;
-    width: 180vh;
-    height: 90vh;
     background-color: rgba(255, 255, 255, 0.13);
     backdrop-filter: blur(7px);
     box-shadow: 0 .4rem .8rem #0005;
@@ -60,12 +56,13 @@ main.table{
     height: 10%;
     position: relative;
     left: 40px;
+    color: aliceblue;
     padding: 10px;
 }
 .table-body{
     width: 95%;
     max-height: 89%;
-    background-color:rgba(255, 255, 255, 0.103) ;
+    background-color:rgba(255, 255, 255, 0.612) ;
     margin: .8rem auto;
     border-radius:.6rem;
     overflow: auto;
@@ -95,10 +92,6 @@ thead td{
     position: sticky;
     top: 0;
     left: 0;
-    background-color:#d5d1de86 ;
-}
-tbody tr :nth-child(:even){
-    background-color: #0000000b;
 }
 tbody tr:hover{
     background-color: rgba(61, 69, 67, 0.445);
