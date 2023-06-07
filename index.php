@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('connect.php');
+include('includes/RhMenu.html');
 if (!isset($_SESSION['cmpt'])) $_SESSION['cmpt'] = 0;
 if (isset($_POST['log'])) {
     $l = $_POST['us'];
@@ -32,11 +33,10 @@ if (isset($_POST['log'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Home Page</title>
     <link rel="stylesheet" href="includes/style.css">
-
+    <link rel="stylesheet" href="includes/RhLandingPage.css">
 </head>
 
 <body>
@@ -55,7 +55,7 @@ if (isset($_POST['log'])) {
             <input type="submit" class="Entrer" name="log" value="Entrer">
         </div>
     </form>
-    <img src="../projet_web/images/img22.png" alt="" id="imgauth">
+    <!-- <img src="../projet_web/images/img22.png" alt="" id="imgauth"> -->
     <!-- <script src="includes/infoverification.js"></script> -->
 </body>
 <?php
