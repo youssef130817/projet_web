@@ -47,8 +47,8 @@ if (!isset($_SESSION['Auth'])) {
                             echo '<td>' . $row['statut_cg'] . '</td>';
                             echo ' <form  action="actualiser.php "method="post">';
                             echo '  <td>
-                                        <input type="submit" name="accepter" id="btnA" value="" onclick="verifcoment(event)">
-                                        <input type="submit" name="reffuser" id="btnR" value="" onclick="verifcoment(event)">
+                                        <input  class="A" type="submit" name="accepter" id="btnA" value="">
+                                        <input  class="B" type="submit" name="reffuser" id="btnR" value="">
                                         <label class="label_coment" for="comment">Commentaire</label>
                                         <input type="text" name="comment" class="comment">
                                         <p class="error"></p>
@@ -67,15 +67,26 @@ if (!isset($_SESSION['Auth'])) {
 </body>
 
 <script>
+    var enter = document.querySelectorAll('.A');
     //ajouter un evenemnt pour boutton entrer pour vérifier l'email et le mot de passe 
-    function verifcoment(event) {
+    enter.addEventListener('click', function(event) {
         let commentField = document.querySelectorAll('.comment');
         if (commentField.value.length < 20) {
             event.preventDefault();
             alert('Le champ commentaire doit contenir au moins 20 caractères.');
         }
 
-    }
+    })
+    var enter = document.querySelector('.B');
+    //ajouter un evenemnt pour boutton entrer pour vérifier l'email et le mot de passe 
+    enter.addEventListener('click', function(event) {
+        let commentField = document.querySelector('.comment');
+        if (commentField.value.length < 20) {
+            event.preventDefault();
+            alert('Le champ commentaire doit contenir au moins 20 caractères.');
+        }
+
+    })
 </script>
 
 
