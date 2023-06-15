@@ -1,31 +1,33 @@
+
 <?php
-if (isset($_POST['ajouter'])) {
     session_start();
-    require_once("connect.php");
-
-    $stm = $bdd->prepare("INSERT INTO employe (NOM_EMP,PRENOM_EMP,ADRESSE_EMP,CNI_EMP,NUM_CNSS_EMP,NUM_CIMR_EMP,EMAIL_EMP,SITUATIONFAM_EMP,NBRENFANTS_EMP,SALAIRE_BASE_EMP,DATE_NAISSANCE_EMP,MODE_PAIEMENT_EMP,DATE_EMBACHE_EMP,POSTE_EMP) 
-    VALUES (:nom, :prenom, :adresse, :cni,:cnss,:cimr,:email,:situationfam,:nbrenfant,:salaire,:daten,:modep,:dateemb,:poste)");
-    $stm->bindParam(':nom', $_POST['nom']);
-    $stm->bindParam(':prenom', $_POST['prenom']);
-    $stm->bindParam(':adresse', $_POST['adresse']);
-    $stm->bindParam(':cni', $_POST['numcni']);
-    $stm->bindParam(':cnss', $_POST['numcnss']);
-    $stm->bindParam(':cimr', $_POST['numcimr']);
-    $stm->bindParam(':email', $_POST['email']);
-    $stm->bindParam(':situationfam', $_POST['situation']);
-    $stm->bindParam(':nbrenfant', $_POST['nbrenfant']);
-    $stm->bindParam(':salaire', $_POST['salaire']);
-    $stm->bindParam(':daten', $_POST['dateN']);
-    $stm->bindParam(':modep', $_POST['mode']);
-    $stm->bindParam(':dateemb', $_POST['dateEm']);
-    $stm->bindParam(':poste', $_POST['poste']);
-    $stm->execute();
-
-    if ($stm->rowCount()) {
-        $_SESSION['succes'] = "Ajouté avec succès!";
-        header("location:ajouterEmploye.php");
+    include('connect.php');
+    if(isset($_POST['ajouter']))
+    {
+        $n=$_POST['nom'];
+        $p=$_POST['prenom'];
+        $a=$_POST['adresse'];
+        $c=$_POST['numcni'];
+        $cnss=$_POST['numcnss'];
+        $cimr=$_POST['numcimr'];
+        $e=$_POST['email'];
+        $sf=$_POST['situation'];
+        $nbe=$_POST['nbrenfant'];
+        $sal=$_POST['salaire'];
+        $dn=$_POST['dateN'];
+        $de=$_POST['dateEm'];
+        $mp=$_POST['mode'];
+        $pst=$_POST['poste'];
+        $ent=$_POST['travailleent'];
+        $ig=$_POST['img'];
+        $req=$bdd->prepare("INSERT into employee values (NULL,'$n','$p','$a','$c','$cnss','$cimr','$e','$sf','$nbe','$sal','$dn','$de','$mp','$pst')");
+        $req3=$bdd->prepare("SELECT  id_emp from employee where adresse_emp='$a'");
+        $req->execute();
+        $req3->execute();
+        $res=$req3->fetch(PDO::FETCH_ASSOC);
+        $id=$res['id_emp'];
+        $req2=$bdd->prepare("INSERT INTO comptes values ('$id',1,'$e','$e',0,'$ent')");
+        $req2->execute();
+        header('location:ajouterEmploye.php');
     }
-} else {
-    header("location: ajouterEmploye.php");
-}
 ?>

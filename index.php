@@ -22,9 +22,9 @@ if (isset($_POST['log'])) {
         //si l'utilisateur n a pas encore modifié le mdp
         if ($result['etat'] == '0') header('location:Reinitialiser.php/?name='.$l.'');
         else {
-            if ($result['type'] == '0')  header('location:emp.php');
+            if ($result['type'] == '0')  header('location:espaceEmployer.php');
             if ($result['type'] == '1') header('location:RhLandingPage.php?');
-            if ($result['type'] == '2') header('location:rp.php');
+            if ($result['type'] == '2') header('location:espaceRP.php');
         }
     } else {
         $e = "err";

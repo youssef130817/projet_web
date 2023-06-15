@@ -43,22 +43,26 @@
                             <input class="input--style-1" type="text" placeholder="Numéro CIMR" name="numcimr">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Email" name="email">
+                            <input class="input--style-1" type="email" placeholder="Email" name="email">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Situation Familiale" name="situation">
+                            <select name="situation" id="">
+                                <option value="M">Marié(e)</option>
+                                <option value="C">Célibataire</option>
+                            </select>
+                            <!-- <input class="input--style-1" type="text" placeholder="Situation Familiale" name="situation"> -->
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Nombre Enfants" name="nbrenfant">
+                            <input class="input--style-1" type="number" placeholder="Nombre Enfants" name="nbrenfant">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Salaire de base" name="salaire">
+                            <input class="input--style-1" type="number" placeholder="Salaire de base" name="salaire">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Date naissance" name="dateN">
+                            <input class="input--style-1" type="date" placeholder="Date naissance" name="dateN">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="text" placeholder="Date embauche" name="dateEm">
+                            <input class="input--style-1" type="date" placeholder="Date embauche" name="dateEm">
                         </div>
                         <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="Mode paiment" name="mode">
@@ -67,8 +71,22 @@
                             <input class="input--style-1" type="text" placeholder="Poste" name="poste">
                         </div>
                         <div class="input-group">
-                          <select name="" id="" disabled="disabled">
-                          </select>
+                        <select name="travailleent" id="">
+                            <?php
+                                $vr=$_SESSION['Cnx']['id_emp'];
+                                $req=$bdd->prepare("SELECT id_ent from comptes where id_emp='$vr'");
+                                $req->execute();
+                                $mareqresult=$req->fetch(PDO::FETCH_ASSOC);
+                                if($req->rowCount()==1)
+                                {
+                                    $vr2=$mareqresult['id_ent'];
+                                    $req2=$bdd->prepare("SELECT nom_ent,id_ent from entreprise where id_ent='$vr2'");
+                                    $req2->execute();
+                                    $rr=$req2->fetch(PDO::FETCH_ASSOC);
+                                    echo "<option value='".$rr['id_ent']."' >".$rr['nom_ent']."</option>";
+                                }
+                            ?>
+                        </select>
                             <!-- <input class="input--style-1" type="text" placeholder="Poste" name="poste"> -->
                         </div>
                         <div class="input-group">
