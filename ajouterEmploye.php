@@ -1,27 +1,28 @@
 <?php
-    session_start();
-    include('connect.php');
-    include('includes/RhMenu.html');
-    if(!isset($_SESSION['Auth']))
-    {
-        header('location:index.php');
-    }
+session_start();
+include('connect.php');
+include('includes/RhMenu.html');
+if (!isset($_SESSION['Auth'])) {
+    header('location:index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" href="includes/ajoutemp.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="includes/ajoutemp.css">
 </head>
+
 <body>
-  <div class="page-wrapper p-t-100 p-b-100 font-robo">
+    <div class="page-wrapper p-t-100 p-b-100 font-robo">
         <div class="wrapper wrapper--w680">
             <div class="card card-1">
                 <div class="card-heading"></div>
-                <div class="card-body">
+                <div class="card-body new">
                     <h2 class="title">Informations de l'employé</h2>
                     <form method="POST" action="employetrait.php">
                         <div class="input-group">
@@ -43,20 +44,20 @@
                             <input class="input--style-1" type="text" placeholder="Numéro CIMR" name="numcimr">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="email" placeholder="Email" name="email">
+                            <input class="input--style-1" type="text" placeholder="Email" name="email">
                         </div>
+
                         <div class="input-group">
                             <select name="situation" id="">
-                                <option value="M">Marié(e)</option>
-                                <option value="C">Célibataire</option>
+                                <option>célébataire</option>
+                                <option>marié</option>
                             </select>
-                            <!-- <input class="input--style-1" type="text" placeholder="Situation Familiale" name="situation"> -->
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="number" placeholder="Nombre Enfants" name="nbrenfant">
+                            <input class="input--style-1" type="text" placeholder="Nombre Enfants" name="nbrenfant">
                         </div>
                         <div class="input-group">
-                            <input class="input--style-1" type="number" placeholder="Salaire de base" name="salaire">
+                            <input class="input--style-1" type="text" placeholder="Salaire de base" name="salaire">
                         </div>
                         <div class="input-group">
                             <input class="input--style-1" type="date" placeholder="Date naissance" name="dateN">
@@ -71,28 +72,24 @@
                             <input class="input--style-1" type="text" placeholder="Poste" name="poste">
                         </div>
                         <div class="input-group">
-                        <select name="travailleent" id="">
-                            <?php
-                                $vr=$_SESSION['Cnx']['id_emp'];
-                                $req=$bdd->prepare("SELECT id_ent from comptes where id_emp='$vr'");
-                                $req->execute();
-                                $mareqresult=$req->fetch(PDO::FETCH_ASSOC);
-                                if($req->rowCount()==1)
-                                {
-                                    $vr2=$mareqresult['id_ent'];
-                                    $req2=$bdd->prepare("SELECT nom_ent,id_ent from entreprise where id_ent='$vr2'");
-                                    $req2->execute();
-                                    $rr=$req2->fetch(PDO::FETCH_ASSOC);
-                                    echo "<option value='".$rr['id_ent']."' >".$rr['nom_ent']."</option>";
+                            <select name="selection" id="">
+                                <?php
+                                $mareq = $bdd->prepare("SELECT * FROM entreprise");
+                                $mareq->execute();
+                                $mareqresult = $mareq->fetchALL(PDO::FETCH_ASSOC);
+                                foreach ($mareqresult as $m) {
+                                    echo "<option value='" . $m['nom_ent'] . "' >" . $m['nom_ent'] . "</option>";
                                 }
-                            ?>
-                        </select>
+                                ?>
+                            </select>
                             <!-- <input class="input--style-1" type="text" placeholder="Poste" name="poste"> -->
                         </div>
                         <div class="input-group">
                             <input class="input--style-1" type="file" placeholder="Selectionner une photo de l'employé" name="img">
                         </div>
-                        <div class="p-t-20">
+                        <div class="error-txt"></div>
+                        <div class="success-txt"></div>
+                        <div class="p-t-20 button">
                             <button class="btn btn--radius btn--green" type="submit" name="ajouter">Ajouter</button>
                         </div>
                     </form>
@@ -100,5 +97,7 @@
             </div>
         </div>
     </div>
+    <script src="includes/ajouterEmp.js"></script>
 </body>
+
 </html>

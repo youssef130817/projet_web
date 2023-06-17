@@ -1,48 +1,14 @@
-<?php
-session_start();
-include('connect.php');
-// include('includes/RhMenu.html');
-if (!isset($_SESSION['cmpt'])) $_SESSION['cmpt'] = 0;
-if (isset($_POST['log'])) {
-    $l = $_POST['us'];
-    $p = $_POST['pss'];
-    $req = $bdd->prepare("SELECT * from comptes WHERE username='$l' AND motdepasse='$p'");
-    $req->execute();
-    $result = $req->fetch(PDO::FETCH_ASSOC);
-    if ($req->rowCount() == 1) 
-    {
-        $var=$result['id_emp'];
-        $req2 = $bdd->prepare("SELECT nom_emp FROM employee WHERE id_emp = '$var'");
-        // $result = $bdd->query("SELECT * FROM `conges`, `employe` WHERE conges.ID_EMP = employe.ID_EMP AND conges.STATUT_CONGES='$state'");
-        $req2->execute();
-        $res2 = $req2->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['Cnx'] = $result;
-        $_SESSION['Auth'] = $res2;
-        unset($_SESSION['cmpt']);
-        //si l'utilisateur n a pas encore modifié le mdp
-        if ($result['etat'] == '0') header('location:Reinitialiser.php/?name='.$l.'');
-        else {
-            if ($result['type'] == '0')  header('location:espaceEmployer.php');
-            if ($result['type'] == '1') header('location:RhLandingPage.php?');
-            if ($result['type'] == '2') header('location:espaceRP.php');
-        }
-    } else {
-        $e = "err";
-        $_SESSION['cmpt']++;
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Home Page</title>
     <link rel="stylesheet" href="includes/style.css">
     <link rel="stylesheet" href="includes/RhLandingPage.css">
 </head>
 
-<body>
-    <form class="form-container" method="POST" action="index.php">
+<body class="form login">
+    <form class="form-container login" method="POST" action="index.php">
         <h3>S'Authentifier</h3>
         <div class="form-grp">
             <label for="username">Email </label><br>
@@ -53,22 +19,13 @@ if (isset($_POST['log'])) {
             <input type="password" name="pss" placeholder="********" id="pass">
             <p class="error"></p>
         </div>
-        <div class="form-grp">
+        <div class="error-txt"></div>
+        <div class="form-grp button">
             <input type="submit" class="Entrer" name="log" value="Entrer">
         </div>
     </form>
     <!-- <img src="../projet_web/images/img22.png" alt="" id="imgauth"> -->
-    <!-- <script src="includes/infoverification.js"></script> -->
+    <script src="includes/infoverification.js"></script>
 </body>
-<?php
-if (isset($e)) {
-    if ($_SESSION['cmpt'] == 3)
-    {
-        unset($_SESSION['cmpt']);
-        header('location:reinit.php');
-    }
-?>
-<?php
-} ?>
 
 </html>
