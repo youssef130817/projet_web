@@ -16,7 +16,7 @@
     <?php
     include('../projet_web/includes/menu.html');
     ?>
-    <form action="" method="post">
+    <form action="index.php" method="post">
         <div class="container w-50" id="Auth">
             <div class="card bg-light text-black shadow lg mb-5 " id="card">
                 <div class="card-body text-center">
@@ -31,7 +31,12 @@
                         <div class="col-2">
                         </div>
                     </div>
-                    <button class="btn btn-outline-dark btn-lg px-5" type="submit" id="btn">Rénitialiser</button>
+                    <button class="btn btn-outline-dark btn-lg px-5" name="btn" type="submit" id="btn">Rénitialiser</button>
+                    <?php
+                    if (isset($_POST['btn'])) {
+                        header('location: index . php');
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -42,7 +47,6 @@
 <script>
     var btn = document.getElementById('btn');
     btn.addEventListener('click', function(e) {
-        e.preventDefault()
         var email = document.getElementById('email').value;
         var mess = "pour réintialiser votre mot de passe cliquer sur le lien suivant : http://localhost:8080/projet_web/Reinitialiser.php/?name=" + email;
         Email.send({
@@ -51,11 +55,8 @@
             From: "youssef.kassimi-etu@etu.univh2c.ma",
             Subject: "testing email",
             Body: mess
-        }).then(
-            message => alert(message)
-        );
+        })
     })
-    
 </script>
 
 </html>

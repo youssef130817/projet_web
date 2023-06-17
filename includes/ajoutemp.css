@@ -72,8 +72,28 @@ body{
     box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
     transform: translateY(-10px);
   }
+  .error-txt{
 
+    color:#721c24;
+    background: #f18f8f;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    border:1px solid #ff9b9b ;
+    display: none;
+}
+  .success-txt{
 
+    color:#721c24;
+    background: #bdff87;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+    border:1px solid #cbff86 ;
+    display: none;
+}
 
 
 /* ==========================================================================

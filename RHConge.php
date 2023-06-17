@@ -9,6 +9,7 @@ if (!isset($_SESSION['Auth'])) {
 
 <head>
     <link rel="stylesheet" href="includes/RhConge.css">
+
 </head>
 
 <body>
@@ -34,28 +35,30 @@ if (!isset($_SESSION['Auth'])) {
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody class="conge">
                         <?php
                         require 'connect.php';
                         $result = $bdd->query("SELECT * FROM `conges`, `employee` WHERE conges.id_emp = employee.id_emp");
+                        $rowNum = 0; // Variable pour suivre le numéro de ligne actuel
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                             echo '<tr>';
                             echo '<td>' . $row['nom_emp'] . '</td>';
                             echo '<td>' . $row['prenom_emp'] . '</td>';
                             echo '<td>' . $row['date_debut_cg'] . '</td>';
                             echo '<td>' . $row['date_fin_cg'] . '</td>';
-                            echo '<td>' . $row['statut_cg'] . '</td>';
-                            echo ' <form  action="actualiser.php "method="post">';
+                            echo '<td id="st-' . $rowNum . '">' . $row['statut_cg'] . '</td>';
+                            echo ' <form method="POST">';
                             echo '  <td>
-                                        <input  class="A" type="submit" name="accepter" id="btnA" value="">
-                                        <input  class="B" type="submit" name="reffuser" id="btnR" value="">
-                                        <label class="label_coment" for="comment">Commentaire</label>
-                                        <input type="text" name="comment" class="comment">
-                                        <p class="error"></p>
                                         <input type="hidden" name="idc" value="' . $row["id_cg"] . '">
+                                        <input  type="submit" name="accepter" id="btnA" value="" onclick="Accepter(event,' . $row["id_cg"] . ', ' . $rowNum . ')">
+                                        <input  type="submit" name="reffuser" id="btnR" value="" onclick="Rejeter(event,' . $row["id_cg"] . ', ' . $rowNum . ')">
+                                        <label class="label_coment" for="comment">Commentaire</label>
+                                        <input type="text" name="comment" id="cmt-' . $rowNum . '" class="comment">
+                                        <p class="error-txt" id="err-' . $rowNum . '"></p>
                                     </td>';
                             echo '</form>';
                             echo '</tr>';
+                            $rowNum++; // Incrémenter le numéro de ligne
                         }
                         ?>
                         </tr>
@@ -64,30 +67,7 @@ if (!isset($_SESSION['Auth'])) {
             </div>
         </main>
     </form>
+    <script src="includes/RHConge.js"></script>
 </body>
-
-<script>
-    var enter = document.querySelectorAll('.A');
-    //ajouter un evenemnt pour boutton entrer pour vérifier l'email et le mot de passe 
-    enter.addEventListener('click', function(event) {
-        let commentField = document.querySelectorAll('.comment');
-        if (commentField.value.length < 20) {
-            event.preventDefault();
-            alert('Le champ commentaire doit contenir au moins 20 caractères.');
-        }
-
-    })
-    var enter = document.querySelector('.B');
-    //ajouter un evenemnt pour boutton entrer pour vérifier l'email et le mot de passe 
-    enter.addEventListener('click', function(event) {
-        let commentField = document.querySelector('.comment');
-        if (commentField.value.length < 20) {
-            event.preventDefault();
-            alert('Le champ commentaire doit contenir au moins 20 caractères.');
-        }
-
-    })
-</script>
-
 
 </html>
