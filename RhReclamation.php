@@ -41,11 +41,12 @@ if (!isset($_SESSION['Auth'])) {
                             <td>' . $row['prenom_emp'] . '</td>
                             <form  action="TraiterReclamation.php" method="post">
                             <td>
-                                        <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
-                                        <input type="hidden" name="id_rec" value="' . $row["id_rec"] . '">
-                                        <input type="hidden" name="id_dest" value="' . $row["respo_destine"] . '">
-                                        <input type="submit" name="traiter" value="traiter">
-                                    </td>
+                                <p>' . $row['etat'] . '</p>
+                                <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
+                                <input type="hidden" name="id_rec" value="' . $row["id_rec"] . '">
+                                <input type="hidden" name="id_dest" value="' . $row["respo_destine"] . '">
+                                <input type="submit" name="traiter" value="traiter">
+                            </td>
                             </form>
                             </tr>';
                     }
