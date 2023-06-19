@@ -23,11 +23,28 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+#btnM{
+    width: 40px;
+    height: 40px;
+    border-style: none;
+    border-radius: 50%;
+    background-image: url("../images/modifier.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#btnM:hover{
+    box-shadow: 0 0 7px 5px rgba(37, 133, 252, 0.9);
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+}
+.ent {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
 }
 body{
     min-height: 100vh;

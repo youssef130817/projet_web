@@ -11,14 +11,13 @@ $req->execute();
 $result = $req->fetch(PDO::FETCH_ASSOC);
 if ($req->rowCount() == 1) {
     $var = $result['id_emp'];
-    $req2 = $bdd->prepare("SELECT nom_emp FROM employee WHERE id_emp = '$var'");
-    // $result = $bdd->query("SELECT * FROM `conges`, `employe` WHERE conges.ID_EMP = employe.ID_EMP AND conges.STATUT_CONGES='$state'");
+    $req2 = $bdd->prepare("SELECT nom_emp,img_emp FROM employee WHERE id_emp = '$var'");
     $req2->execute();
     $res2 = $req2->fetch(PDO::FETCH_ASSOC);
     $_SESSION['Cnx'] = $result;
     $_SESSION['Auth'] = $res2;
     unset($_SESSION['cmpt']);
-    //si l'utilisateur n a pas encore modifié le mdp
+    //si l'utilisateur n'a pas encore modifié le mdp
     if ($result['etat'] == '0') echo 'Reinitialiser.php/?name=' . $l . '';
     else {
         if ($result['type'] == '0')  echo 'emp.php';

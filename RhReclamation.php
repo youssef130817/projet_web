@@ -33,7 +33,6 @@ if (!isset($_SESSION['Auth'])) {
                 <tbody>
                     <?php
                     require 'connect.php';
-                    $state = 'en cours';
                     $result = $bdd->query("SELECT * FROM `reclamation`, `employee` WHERE reclamation.id_emp = employee.id_emp  AND reclamation.respo_destine='1'");
                     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                         echo '<tr>
