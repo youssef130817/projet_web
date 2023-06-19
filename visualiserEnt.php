@@ -51,7 +51,7 @@ if (!isset($_SESSION['Auth'])) {
                             } else
                                 $tmp = "SANS GROUPE";
                             echo '<tr>
-                            <td>' . $row['nom_ent'] . '</td>
+                            <td><img class="tabimg" src="uploads/' . $row['img_ent'] . '">' . $row['nom_ent'] . '</td>
                             <td>' . $tmp . '</td>
                             <td class="ent">
                             <form  action="supprimerEnt.php" method="post">

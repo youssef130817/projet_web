@@ -141,3 +141,8 @@ tbody tr:hover{
     border:1px solid #ff9b9b ;
     display: none;
 }
+.tabimg{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}

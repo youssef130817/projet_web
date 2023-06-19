@@ -42,7 +42,7 @@ if (!isset($_SESSION['Auth'])) {
                         $rowNum = 0; // Variable pour suivre le numéro de ligne actuel
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                             echo '<tr>';
-                            echo '<td>' . $row['nom_emp'] . '</td>';
+                            echo '<td><img class="tabimg" src="uploads/' . $row['img_emp'] . '">' . $row['nom_emp'] . '</td>';
                             echo '<td>' . $row['prenom_emp'] . '</td>';
                             echo '<td>' . $row['date_debut_cg'] . '</td>';
                             echo '<td>' . $row['date_fin_cg'] . '</td>';

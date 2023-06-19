@@ -42,6 +42,7 @@ if (!isset($_SESSION['Auth'])) header('location:index.php');
                   $mareq->execute();
                   $mareqresult = $mareq->fetchALL(PDO::FETCH_ASSOC);
                   echo "<option value=''> Sans groupe </option>";
+                  echo "<option value='m'> entreprise mére </option>";
                   foreach ($mareqresult as $m) {
                     echo "<option value='" . $m['id_groupe'] . "' >" . $m['Libelle_gr'] . "</option>";
                   }

@@ -28,7 +28,7 @@ if (isset($_FILES['img']) && $_FILES['img']['error'] == UPLOAD_ERR_OK) {
          `adresse_emp` = '$adresse',`prenom_emp` = '$prenom',`cni_emp` = '$cni',
          `num_cnss_emp` = '$cnss',`num_cimr_emp` = '$cimr',`email_emp` = '$email',`situation_fam` = '$situation',
          `nbr_enfants_emp` = '$nb_enfants',`salaire_base_emp` = '$salaire_base',`date_naissance_emp` = '$date_naissance',
-         `mode_paiement_emp` = '$mode_paiment',`date_embauche_emp` = '$date_embauche',`poste_emp` = '$poste',`img_emp` = '$file_path'
+         `mode_paiement_emp` = '$mode_paiment',`date_embauche_emp` = '$date_embauche',`poste_emp` = '$poste',`img_emp` = '$img'
          where id_emp='$id'");
     $req->execute();
 } else {

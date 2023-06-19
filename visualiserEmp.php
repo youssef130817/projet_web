@@ -42,12 +42,13 @@ if (!isset($_SESSION['Auth'])) {
                         <?php
                         require 'connect.php';
                         $result = $bdd->query("SELECT * FROM `employee`");
+                        $ident = $_SESSION['Cnx']['id_ent'];
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                             $idemp = $row["id_emp"];
-                            $result2 = $bdd->query("SELECT * FROM `entreprise`,`comptes` where comptes.id_emp='$idemp' and comptes.id_ent=entreprise.id_ent");
+                            $result2 = $bdd->query("SELECT * FROM `entreprise`,`comptes` where comptes.id_emp='$idemp' and comptes.id_ent=entreprise.id_ent && comptes.id_ent= '$ident'");
                             $row2 = $result2->fetch(PDO::FETCH_ASSOC);
                             echo '<tr>
-                            <td>' . $row['nom_emp'] . '</td>
+                            <td><img class="tabimg" src="uploads/' . $row['img_emp'] . '">' . $row['nom_emp'] . '</td>
                             <td>' . $row['prenom_emp'] . '</td>
                             <td>' . $row['cni_emp'] . '</td>
                             <td>' . $row2['nom_ent'] . '</td>
@@ -59,6 +60,14 @@ if (!isset($_SESSION['Auth'])) {
                             <form  action="ModifierEmp.php" method="post">
                                 <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
                                 <input  type="submit" name="modifier" id="btnM" value="" ">
+                            </form>
+                            <form  action="ModifierEmp.php" method="post">
+                                <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
+                                <input  type="submit" name="absence" id="btnM" value="" ">
+                            </form>
+                            <form  action="ModifierEmp.php" method="post">
+                                <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
+                                <input  type="submit" name="prime" id="btnM" value="" ">
                             </form>
                             </td>
                             </tr>';

@@ -23,6 +23,7 @@ if (!isset($_SESSION['Auth'])) {
     $date_embauche = $result['date_embauche_emp'];
     $mode_paiment = $result['mode_paiement_emp'];
     $poste = $result['poste_emp'];
+    $img = $result['img_emp'];
     $result2 = $bdd->query("SELECT * FROM `entreprise`,`comptes` where comptes.id_emp='$id' and comptes.id_ent=entreprise.id_ent");
     $row2 = $result2->fetch(PDO::FETCH_ASSOC);
     $nom_ent = $row2['nom_ent'];
@@ -48,6 +49,8 @@ if (!isset($_SESSION['Auth'])) {
                 <div class="card-body new">
                     <h2 class="title">Informations de l'employé</h2>
                     <form method="POST" action="ModEmp.php">
+                        <?php echo '<img class="tabimg" src="uploads/' . $img . '">'; ?>
+
                         <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="Nom" name="nom" value="<?php echo $nom; ?>">
                         </div>

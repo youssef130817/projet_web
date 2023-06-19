@@ -20,9 +20,9 @@ if ($req->rowCount() == 1) {
     //si l'utilisateur n'a pas encore modifié le mdp
     if ($result['etat'] == '0') echo 'Reinitialiser.php/?name=' . $l . '';
     else {
-        if ($result['type'] == '0')  echo 'emp.php';
+        if ($result['type'] == '0')  echo 'espaceEmployer.php';
         if ($result['type'] == '1') echo 'RhLandingPage.php';
-        if ($result['type'] == '2') echo 'rp.php';
+        if ($result['type'] == '2') echo 'espaceRP.php';
     }
 } else {
     echo "ces informations n'est relatives à aucun compte !!";
