@@ -2,8 +2,7 @@
 session_start();
 include('connect.php');
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Cnx'])) 
-{
+if (!isset($_SESSION['Auth'])) {
   header('location:index.php');
 } else {
   $id = $_SESSION['Cnx']['id_emp'];
@@ -37,67 +36,104 @@ if (!isset($_SESSION['Cnx']))
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>profile</title>
-  <link rel="stylesheet" href="includes/ajoutemp.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="profileCss.css" />
 </head>
 
 <body>
-  <div class="page-wrapper p-t-100 p-b-100 font-robo">
-    <div class="wrapper wrapper--w680">
-      <div class="card card-1">
-        <div class="card-heading"></div>
-        <div class="card-body new">
-          <h2 class="title">Informations de l'employé</h2>
-          <form method="POST" action="ModEmp.php">
-            <?php echo '<img class="tabimg" src="uploads/' . $img . '">'; ?>
+<h2 class="title"></h2>
+  <div class="container">        
+ <form method="POST" action="ModEmp.php">
+<table width=100% >
+  <tr>
+    <th colspan="2" ><?php echo '<img class="tabimg" src="uploads/' . $img . '">'; ?></th> 
+  </tr>
 
-            <div class="input-group">
+  <tr> 
+    <td> 
+      <div class="input-group">
+      <label for="nom">Nom:</label>
               <input class="input--style-1" type="text" placeholder="Nom" name="nom" value="<?php echo $nom; ?>" required>
             </div>
-            <div class="input-group">
-              <input class="input--style-1" type="text" placeholder="Prenom" name="prenom" value="<?php echo $prenom; ?>" required>
+    </td> 
+    <td> 
+      <div class="input-group">
+      <label for="prenom">Prenom:</label>
+              <input class="input--style-1" type="text" placeholder="Prenom" name="prenom" value="<?php echo $nom; ?>" required>
             </div>
-            <div class="input-group">
+    </td> 
+
+  </tr>
+  <tr>
+    <td>
+      <div class="input-group">
+     <label for="adresse">Adresse :</label>
               <input class="input--style-1" type="text" placeholder="Adresse" name="adresse" value="<?php echo $adresse; ?>" required>
             </div>
-            <div class="input-group">
+    </td>
+    <td>
+      <div class="input-group">
+     <label for="numcni">CNI :                 </label>
               <input class="input--style-1" type="text" placeholder="CNI" name="numcni" value="<?php echo $cni; ?>" required>
             </div>
-            <div class="input-group">
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <div class="input-group">
+     <label for="numcnss">CNSS :               </label>
               <input class="input--style-1" type="text" placeholder="Numéro CNSS" name="numcnss" value="<?php echo $cnss; ?>" required>
             </div>
-            <div class="input-group">
+     </td>  
+    <td>
+    <div class="input-group">
+     <label for="numcimr">CIMR :               </label>
               <input class="input--style-1" type="text" placeholder="Numéro CIMR" name="numcimr" value="<?php echo $cimr; ?>" required>
             </div>
-            <div class="input-group">
+    </td>
+    </tr>
+  <tr>
+   <td>
+       <div class="input-group">
+     <label for="email">Email :                </label>
               <input class="input--style-1" type="text" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
             </div>
-
-            <div class="input-group">
-              <select name="situation" id="" required>
-                <option value="C" <?php if ($situation == 'C') echo 'selected'; ?>>célébataire</option>
-                <option value="M" <?php if ($situation == 'M') echo 'selected'; ?>>marié</option>
-              </select>
-            </div>
-            <div class="input-group">
+</td>
+    <td>  
+       <div class="input-group">
+     <label for="nbrenfant">Nombres enfants :  </label>
               <input class="input--style-1" type="text" placeholder="Nombre Enfants" name="nbrenfant" value="<?php echo $nb_enfants; ?>" required>
             </div>
-            <div class="input-group">
+      </td>
+  </tr>
+  <tr>
+    <td>  
+       <div class="input-group">
+     <label for="salaire">Salaire de Base :    </label>
               <input class="input--style-1" type="text" placeholder="Salaire de base" name="salaire" value="<?php echo $salaire_base; ?>" required>
             </div>
-            <div class="input-group">
+   </td>
+  <td>
+     <div class="input-group">
+     <label for="situation">Situation  :       </label>
+              <select name="situation" id="" required>
+                <option class="st" value="C" <?php if ($situation == 'C') echo 'selected'; ?>>célébataire</option>
+                <option class="st" value="M" <?php if ($situation == 'M') echo 'selected'; ?>>marié</option>
+              </select>
+     </div>
+   </td>
+</tr>
+<tr>
+  <td>  
+    <div class="input-group">
+     <label for="dateN">Date naissance :       </label>
               <input class="input--style-1" type="date" placeholder="Date naissance" name="dateN" value="<?php echo $date_naissance; ?>" required>
             </div>
-            <div class="input-group">
-              <input class="input--style-1" type="date" placeholder="Date embauche" name="dateEm" value="<?php echo $date_embauche; ?>" required>
-            </div>
-            <div class="input-group">
-              <input class="input--style-1" type="text" placeholder="Mode paiment" name="mode" value="<?php echo $mode_paiment; ?>" required>
-            </div>
-            <div class="input-group">
-              <input class="input--style-1" type="text" placeholder="Poste" name="poste" value="<?php echo $poste; ?>" required>
-            </div>
-            <div class="input-group">
+  </td>
+  <td>
+  <div class="input-group">
+     <label for="entreprise">Entreprise :      </label>
               <select name="entreprise" id="" required>
                 <?php
                 $mareq = $bdd->prepare("SELECT * FROM entreprise");
@@ -113,28 +149,57 @@ if (!isset($_SESSION['Cnx']))
                 ?>
               </select>
             </div>
-            <div class="input-group">
+  </td>
+</tr>
+<tr>
+  <td>  
+     <div class="input-group">
+     <label for="dateEm">Date embauche :       </label>
+              <input class="input--style-1" type="date" placeholder="Date embauche" name="dateEm" value="<?php echo $date_embauche; ?>" required>
+            </div>
+  </td>
+  <td>
+           <div class="input-group">
+     <label for="mode">Mode :                  </label>
+              <input class="input--style-1" type="text" placeholder="Mode paiment" name="mode" value="<?php echo $mode_paiment; ?>" required>
+            </div>
+  </td>
+</tr>
+<tr>
+  <td>
+           <div class="input-group">
+     <label for="poste">Poste :                </label>
+              <input class="input--style-1" type="text" placeholder="Poste" name="poste" value="<?php echo $poste; ?>" required>
+            </div>
+   </td>
+  <td>
+  <div class="input-group">
+     <label for="img">Image :                  </label>
               <input class="input--style-1" type="file" placeholder="Selectionner une photo de l'employé" name="img" required>
             </div>
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+     <input type="hidden" name="id" value="<?php echo $id; ?>">
             <div class="error-txt"></div>
             <div class="success-txt"></div>
             <div class="p-t-20 button">
-              <button class="btn btn--radius btn--green" type="submit" name="ajouter">modifier</button>
+              <button class="btn" type="submit" name="ajouter">Modifier</button>
             </div>
+  </td>
+</tr>
+</table>   
           </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer id="footer">
-    <?php
-    include('footer.html');
-    ?>
-</footer>
-  <script src="includes/modifierEmp.js"></script>
-  
+        <div class="drop drop-1"></div>
+  <div class="drop drop-2"></div>
+  <div class="drop drop-3"></div>
+  <div class="drop drop-4"></div>
+  <div class="drop drop-5"></div>
+</div>
+  <script src="includes/modifierEmp.js"></script>       
 
+    
 </body>
 
 </html>

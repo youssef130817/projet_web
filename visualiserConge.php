@@ -1,14 +1,13 @@
 <?php
 require 'connect.php';
 session_start();
-if (!isset($_SESSION['Cnx'])) {
+if (!isset($_SESSION['Auth'])) {
     $_SESSION['page'] = $_SERVER['REQUEST_URI'];
 }
 $id_emp = $_SESSION['Cnx']['id_emp'];
 $result = $bdd->query("SELECT * FROM `conges` WHERE conges.id_emp = $id_emp");
 echo "Bonjour Mr/Mme ";
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>

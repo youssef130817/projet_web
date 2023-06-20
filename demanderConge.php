@@ -22,10 +22,6 @@
                         <label for="date_fin">Date de fin :</label>
                             <input class="input--style-1"type="date" id="date_fin" name="date_fin" placeholder="Date de fin">
                         </div>
-                        <div class="input-group">
-                        <label for="commentaire">Commentaire :</label>
-                            <textarea class="input--style-1" d="commentaire" name="commentaire"></textarea>
-                        </div>
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit" name="ajouter">Envoyer la demande</button>
                         </div>
