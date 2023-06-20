@@ -57,17 +57,10 @@ if ($_SESSION['Cnx']['type'] !== 1)
                                 <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
                                 <input  type="submit" name="modifier" id="btnM" value="" ">
                             </form>
-                            <button class="open" id="btnM" onclick="openmod()"></button>
-                            <dialog class="modal">
                             <form  action="RhSaisirAbsence.php" method="post">
-                                <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
-                                <h3>saisir absence</h3>
-                                <input  type="text" name="absence" value="" ">
-                                <input  type="text" name="absence" value="" ">
-                                <input  type="text" name="absence"  value="" ">
+                                <input type="hidden" name="id" value="' . $row["id_emp"] . '">
+                                <input  type="submit" name="modifier" id="btnM" value="" ">
                             </form>
-                            <button onclick="closemod();">close</button>
-                            </dialog >
                             </td>
                             </tr>';
                         }
@@ -78,10 +71,10 @@ if ($_SESSION['Cnx']['type'] !== 1)
         </div>
     </div>
     <footer id="footer">
-    <?php
-    include('footer.html');
-    ?>
-</footer>
+        <?php
+        include('footer.html');
+        ?>
+    </footer>
     <script src="visualiserEmp.js"></script>
 </body>
 
