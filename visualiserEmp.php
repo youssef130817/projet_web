@@ -61,14 +61,17 @@ if (!isset($_SESSION['Auth'])) {
                                 <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
                                 <input  type="submit" name="modifier" id="btnM" value="" ">
                             </form>
-                            <form  action="ModifierEmp.php" method="post">
+                            <button class="open" id="btnM" onclick="openmod()"></button>
+                            <dialog class="modal">
+                            <form  action="RhSaisirAbsence.php" method="post">
                                 <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
-                                <input  type="submit" name="absence" id="btnM" value="" ">
+                                <h3>saisir absence</h3>
+                                <input  type="text" name="absence" value="" ">
+                                <input  type="text" name="absence" value="" ">
+                                <input  type="text" name="absence"  value="" ">
                             </form>
-                            <form  action="ModifierEmp.php" method="post">
-                                <input type="hidden" name="id_emp" value="' . $row["id_emp"] . '">
-                                <input  type="submit" name="prime" id="btnM" value="" ">
-                            </form>
+                            <button onclick="closemod();">close</button>
+                            </dialog >
                             </td>
                             </tr>';
                         }
@@ -78,6 +81,10 @@ if (!isset($_SESSION['Auth'])) {
             </div>
         </div>
     </div>
+    <script src="visualiserEmp.js"></script>
 </body>
+<!--footer-->
+<!--?php include('footer.php'); ?-->
+<!--/footer -->
 
 </html>

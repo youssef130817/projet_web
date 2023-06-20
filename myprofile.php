@@ -36,8 +36,7 @@ if (!isset($_SESSION['Auth'])) {
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>profile</title>
   <link rel="stylesheet" href="includes/ajoutemp.css">
 </head>
 
@@ -128,6 +127,8 @@ if (!isset($_SESSION['Auth'])) {
     </div>
   </div>
   <script src="includes/modifierEmp.js"></script>
+  <?php include('footer.php'); ?>
+
 </body>
 
 </html>

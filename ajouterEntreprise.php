@@ -63,6 +63,7 @@ if (!isset($_SESSION['Auth'])) header('location:index.php');
         </div>
       </div>
     </div>
+    <?php include('footer.php'); ?>
     <script src="includes/ajouterEnt.js"></script>
   </body>
 

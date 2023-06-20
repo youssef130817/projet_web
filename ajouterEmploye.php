@@ -103,6 +103,9 @@ if (!isset($_SESSION['Auth'])) {
             </div>
         </div>
     </div>
+    <footer>
+        <?php include('footer.php'); ?>
+    </footer>
     <script src="includes/ajouterEmp.js"></script>
 </body>
 

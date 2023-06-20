@@ -29,4 +29,4 @@ if (isset($_FILES['img']) && $_FILES['img']['error'] == UPLOAD_ERR_OK) {
     $req->execute();
     $result = $req->fetch(PDO::FETCH_ASSOC);
 }
-echo "information modifiés ";
+echo "informations modifiés";

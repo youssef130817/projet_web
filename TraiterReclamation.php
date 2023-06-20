@@ -47,6 +47,7 @@ if (!isset($_SESSION['Auth'])) {
         </div>
     </main>
     <script src="includes/TraiterReclamation.js"></script>
+    <?php include('footer.php'); ?>
 </body>
 
 </html>

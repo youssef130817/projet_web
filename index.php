@@ -24,7 +24,7 @@
             <input type="submit" class="Entrer" name="log" value="Entrer">
         </div>
     </form>
-    <!-- <img src="../projet_web/images/img22.png" alt="" id="imgauth"> -->
+    <?php include('footer.php'); ?>
     <script src="includes/infoverification.js"></script>
 </body>
 

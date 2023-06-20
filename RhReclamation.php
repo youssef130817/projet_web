@@ -56,5 +56,8 @@ if (!isset($_SESSION['Auth'])) {
         </section>
     </main>
 </body>
+<!--footer-->
+<!--?php include('footer.php'); ?-->
+<!--/footer -->
 
 </html>

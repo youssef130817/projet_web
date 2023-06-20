@@ -61,6 +61,7 @@ if (isset($_POST['btn'])) {
             </div>
         </div>
     </form>
+    <?php include('footer.php'); ?>
 </body>
 
 </html>

@@ -72,8 +72,13 @@ if (!isset($_SESSION['Auth'])) {
             </div>
         </div>
     </div>
+
     <script src="visualiserEnt.js"></script>
 
+
 </body>
+<!--footer-->
+<!--?php include('footer.php'); ?-->
+<!--/footer -->
 
 </html>

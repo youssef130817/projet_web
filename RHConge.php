@@ -69,5 +69,8 @@ if (!isset($_SESSION['Auth'])) {
     </form>
     <script src="includes/RHConge.js"></script>
 </body>
+<!--footer-->
+<!--?php include('footer.php'); ?-->
+<!--/footer -->
 
 </html>

@@ -78,7 +78,8 @@ else {
                 </div>
             </div>
         </div>
-        <script src="includes/ModifierEnt.js"></script>
+        <?php include('footer.php'); ?>
+        <script src="includes/modifierEnt.js"></script>
     </body>
 
 </html>
