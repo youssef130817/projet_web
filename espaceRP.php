@@ -2,7 +2,7 @@
 session_start();
 include('includes/RhMenu.html');
 
-if ($_SESSION['Cnx']['type'] !== 2) {
+if ($_SESSION['Cnx']['type'] != 2) {
     header('location: index.php');
 }
 ?>

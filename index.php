@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="includes/style.css">
     <link rel="stylesheet" href="includes/RhLandingPage.css">
 </head>
+//******* */
 
 <body class="form login">
     <form class="form-container login" method="POST" action="index.php">
@@ -25,10 +26,10 @@
         </div>
     </form>
     <footer id="footer">
-    <?php
-    include('footer.html');
-    ?>
-</footer>
+        <?php
+        include('footer.html');
+        ?>
+    </footer>
     <script src="includes/infoverification.js"></script>
 </body>
 
