@@ -1,9 +1,8 @@
 <?php
 session_start();
 include('includes/RhMenu.html');
-if (!isset($_SESSION['RH'])) {
+if ($_SESSION['Cnx']['type'] !== 1)
     header('location: index.php');
-}
 ?>
 <!DOCTYPE html>
 <html>

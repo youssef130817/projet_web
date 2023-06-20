@@ -1,8 +1,10 @@
+?>
 <?php
 session_start();
 include('connect.php');
-if (!isset($_SESSION['RH'])) header('location:index.php');
-else {
+if ($_SESSION['Cnx']['type'] !== 1) {
+    header('location: index.php');
+} else {
     $id = $_POST['id_ent'];
     $req = $bdd->prepare("SELECT * from entreprise WHERE id_ent='$id' ");
     $req->execute();
@@ -80,9 +82,9 @@ else {
         </div>
         <footer id="footer">
             <?php
-                include('footer.html');
+            include('footer.html');
             ?>
-</footer>
+        </footer>
         <script src="includes/modifierEnt.js"></script>
     </body>
 

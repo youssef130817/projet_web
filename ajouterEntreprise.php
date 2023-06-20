@@ -1,7 +1,8 @@
 <?php
-  session_start();
-  include('connect.php');
-  if (!isset($_SESSION['RH'])) header('location:index.php');
+session_start();
+include('connect.php');
+if ($_SESSION['Cnx']['type'] !== 1)
+  header('location: index.php');
 ?>
 
 <!DOCTYPE html>

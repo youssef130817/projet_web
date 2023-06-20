@@ -2,9 +2,8 @@
 session_start();
 include('connect.php');
 include('includes/RhMenu.html');
-if (!isset($_SESSION['RH'])) 
-{
-    header('location:index.php');
+if ($_SESSION['Cnx']['type'] !== 1) {
+    header('location: index.php');
 } else {
     $id = $_POST['id_emp'];
     $req = $bdd->prepare("SELECT * from employee WHERE id_emp='$id' ");
@@ -129,10 +128,10 @@ if (!isset($_SESSION['RH']))
         </div>
     </div>
     <footer id="footer">
-    <?php
-    include('footer.html');
-    ?>
-</footer>
+        <?php
+        include('footer.html');
+        ?>
+    </footer>
     <script src="includes/modifierEmp.js"></script>
 </body>
 

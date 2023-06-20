@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['Auth'])) {
+
+if ($_SESSION['Cnx']['type'] !== 1) {
     header('location: index.php');
 }
 ?>

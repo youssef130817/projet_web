@@ -27,8 +27,7 @@
     <?php
     session_start();
     include('includes/RhMenu.html');
-    if (!isset($_SESSION['Cnx'])) 
-    {
+    if (!isset($_SESSION['Cnx'])) {
         header('location: index.php');
     }
     ?>
@@ -55,6 +54,14 @@
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
                         <h2>Votre Espace</h2>
+                    </div>
+                    <div>
+                        <h3>
+                            <?php
+
+                            echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
+                            ?>
+                        </h3>
                     </div>
                     <div class="row">
                         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
@@ -111,7 +118,7 @@
         </main><!-- End #main -->
         <footer id="footer">
             <?php
-                include('footer.html');
+            include('footer.html');
             ?>
         </footer><!-- End Footer -->
 

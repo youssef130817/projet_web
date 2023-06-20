@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION['RH'])) {
+
+if ($_SESSION['Cnx']['type'] !== 1) {
     header('location: index.php');
 }
 ?>
@@ -68,10 +69,10 @@ if (!isset($_SESSION['RH'])) {
         </main>
     </form>
     <footer id="footer">
-    <?php
-    include('footer.html');
-    ?>
-</footer>
+        <?php
+        include('footer.html');
+        ?>
+    </footer>
     <script src="includes/RHConge.js"></script>
 </body>
 <!--footer-->
