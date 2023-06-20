@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
 session_start();
-if (!isset($_SESSION['Auth'])) {
+if (!isset($_SESSION['Cnx'])) {
     $_SESSION['page'] = $_SERVER['REQUEST_URI'];
 }
 $id_emp = $_SESSION['Cnx']['id_emp'];
@@ -50,6 +50,11 @@ echo "Bonjour Mr/Mme ";
             </div>
         </main>
     </form>
+    <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
 </body>
 
 </html>

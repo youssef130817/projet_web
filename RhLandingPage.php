@@ -10,7 +10,8 @@
   <?php
   session_start();
   include('includes/RhMenu.html');
-  if (!isset($_SESSION['Auth'])) {
+  if (!isset($_SESSION['RH'])) 
+  {
     header('location: index.php');
   }
   ?>
@@ -21,7 +22,7 @@
         <div class="col-xl-6 col-lg-8">
           <h1>
             <?php
-            echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
+            echo "<p>Bonjour " . $_SESSION['RH']['nom_emp'] . " </p>";
             ?>
           </h1>
         </div>
@@ -42,7 +43,11 @@
       </div>
     </div>
   </section>
-  <?php include('footer.php'); ?>
+  <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
 
 
 </body>

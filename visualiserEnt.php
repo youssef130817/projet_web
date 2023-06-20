@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Auth'])) {
+if (!isset($_SESSION['RH'])) {
     header('location: index.php');
 }
 ?>
@@ -15,9 +15,6 @@ if (!isset($_SESSION['Auth'])) {
 </head>
 
 <body>
-    <?php
-    include('includes/RhMenu.html');
-    ?>
     <div class="container-xl mt-5">
         <div class="table-responsive">
             <div class="table-wrapper">
@@ -72,7 +69,11 @@ if (!isset($_SESSION['Auth'])) {
             </div>
         </div>
     </div>
-
+    <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
     <script src="visualiserEnt.js"></script>
 
 

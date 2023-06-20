@@ -24,7 +24,11 @@
             <input type="submit" class="Entrer" name="log" value="Entrer">
         </div>
     </form>
-    <?php include('footer.php'); ?>
+    <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
     <script src="includes/infoverification.js"></script>
 </body>
 

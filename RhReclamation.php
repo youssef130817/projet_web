@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Auth'])) {
+if (!isset($_SESSION['RH'])) {
     header('location: index.php');
 }
 ?>
@@ -55,9 +55,12 @@ if (!isset($_SESSION['Auth'])) {
             </table>
         </section>
     </main>
+    <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
 </body>
-<!--footer-->
-<!--?php include('footer.php'); ?-->
-<!--/footer -->
+
 
 </html>

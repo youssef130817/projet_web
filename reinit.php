@@ -41,8 +41,13 @@
             </div>
         </div>
     </form>
+    <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
 </body>
-<?php include('footer.php'); ?>
+
 <script src="https://smtpjs.com/v3/smtp.js">
 </script>
 <script>

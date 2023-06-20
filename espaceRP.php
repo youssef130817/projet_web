@@ -9,7 +9,7 @@
     <?php
     session_start();
     include('includes/RhMenu.html');
-    if (!isset($_SESSION['Auth'])) {
+    if (!isset($_SESSION['RP'])) {
         header('location: index.php');
     }
     ?>
@@ -20,7 +20,7 @@
             <div class="col-xl-6 col-lg-8">
                 <h1>
                     <?php
-                        echo "<p>Bonjour " . $_SESSION['Auth']['nom_emp'] . " </p>";
+                        echo "<p>Bonjour " . $_SESSION['RP']['nom_emp'] . " </p>";
                     ?>
                 </h1>
             </div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Auth'])) {
+if (!isset($_SESSION['RH'])) {
     header('location: index.php');
 }
 ?>
@@ -13,9 +13,6 @@ if (!isset($_SESSION['Auth'])) {
 </head>
 
 <body>
-    <?php
-    include('includes/RhMenu.html');
-    ?>
     <main>
         <div class="main">
             <?php
@@ -46,8 +43,12 @@ if (!isset($_SESSION['Auth'])) {
             ?>
         </div>
     </main>
+    <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
     <script src="includes/TraiterReclamation.js"></script>
-    <?php include('footer.php'); ?>
 </body>
 
 </html>

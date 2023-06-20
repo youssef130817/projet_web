@@ -2,7 +2,8 @@
 session_start();
 include('connect.php');
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Auth'])) {
+if (!isset($_SESSION['Cnx'])) 
+{
   header('location:index.php');
 } else {
   $id = $_SESSION['Cnx']['id_emp'];
@@ -126,8 +127,13 @@ if (!isset($_SESSION['Auth'])) {
       </div>
     </div>
   </div>
+  <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
   <script src="includes/modifierEmp.js"></script>
-  <?php include('footer.php'); ?>
+  
 
 </body>
 

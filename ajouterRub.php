@@ -2,10 +2,8 @@
     session_start();
     include('connect.php');
     include('includes/RhMenu.html');
-    if(!isset($_SESSION['Auth']))
-    {
-        header('location:index.php');
-    }
+    if(!isset($_SESSION['RP'])) header('location:index.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

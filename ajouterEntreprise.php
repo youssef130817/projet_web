@@ -1,7 +1,7 @@
 <?php
-session_start();
-include('connect.php');
-if (!isset($_SESSION['Auth'])) header('location:index.php');
+  session_start();
+  include('connect.php');
+  if (!isset($_SESSION['RH'])) header('location:index.php');
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['Auth'])) header('location:index.php');
         </div>
       </div>
     </div>
-    <?php include('footer.php'); ?>
+    <?php include('footer.html'); ?>
     <script src="includes/ajouterEnt.js"></script>
   </body>
 
