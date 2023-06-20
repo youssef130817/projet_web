@@ -23,7 +23,7 @@ if ($req->rowCount() == 1) {
     else {
         if ($result['type'] == '0')  echo 'emp.php';
         if ($result['type'] == '1') echo 'RhLandingPage.php';
-        if ($result['type'] == '2') echo 'rp.php';
+        if ($result['type'] == '2') echo 'espaceRP.php';
     }
 } else {
     echo "ces informations n'est relatives à aucun compte !!";
