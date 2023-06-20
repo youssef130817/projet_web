@@ -19,3 +19,67 @@
     </div>
 </body>
 </html>
+
+<?php foreach ($_SESSION['EtudsInvalide'] as $elem) 
+					{
+					?> 
+                    <tr>
+                        <td><?php echo $elem['ID_ETUD']?> </td>
+                        <td><?php echo $elem['NOM']?></td>
+                        <td><?php echo $elem['PRENOM']?></td>                        
+                        <td><?php echo $elem['DATENAISS']?></td>
+                        <td><?php echo $elem['EMAIL']?></td>
+                        <td><?php echo $elem['CNE']?></td>
+                        <td>
+                            <a href="#" class="settings" title="Modifier" data-toggle="modal" data-id=<?php echo $elem['ID_ETUD'];?> data-nom=<?php echo $elem['NOM'];?> data-prenom=<?php echo $elem['PRENOM'];?> data-image=<?php echo $elem['ETUD_IMAGE'];?> data-email=<?php echo $elem['EMAIL'];?> data-ville=<?php echo $elem['VILLE'];?> data-adresse=<?php echo $elem['ADRESSE'];?> data-dnaiss=<?php echo $elem['DATENAISS'];?> data-cne=<?php echo $elem['CNE'];?> data-cni=<?php echo $elem['CNI'];?>>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="delete" title="Supprimer" data-toggle="tooltip"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+					<?php }?>
+
+
+
+                    <?php foreach ($_SESSION['EtudsInvalide'] as $elem) 
+					{
+					?> 
+                    <tr>
+                        <td><?php echo $elem['ID_ETUD']?> </td>
+                        <td><?php echo $elem['NOM']?></td>
+                        <td><?php echo $elem['PRENOM']?></td>                        
+                        <td><?php echo $elem['DATENAISS']?></td>
+                        <td><?php echo $elem['EMAIL']?></td>
+                        <td><?php echo $elem['CNE']?></td>
+                        <td>
+                            <a href="#" class="settings" title="Modifier" data-toggle="modal" data-id=<?php echo $elem['ID_ETUD'];?> data-nom=<?php echo $elem['NOM'];?> data-prenom=<?php echo $elem['PRENOM'];?> data-image=<?php echo $elem['ETUD_IMAGE'];?> data-email=<?php echo $elem['EMAIL'];?> data-ville=<?php echo $elem['VILLE'];?> data-adresse=<?php echo $elem['ADRESSE'];?> data-dnaiss=<?php echo $elem['DATENAISS'];?> data-cne=<?php echo $elem['CNE'];?> data-cni=<?php echo $elem['CNI'];?>>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="delete" title="Supprimer" data-toggle="tooltip"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+					<?php }?>
+
+/******************/
+                    <?php
+                        $id=$_POST['selectent'];
+                        $req3=$bdd->prepare("SELECT * from calcul,rubrique where calcul.id_ent='$id' GROUP BY rubrique.id_rub ");
+                        $req3->execute();
+                        $mareqresult3=$req3->fetchAll(PDO::FETCH_ASSOC);
+                        foreach($mareqresult3 as $m)
+                        {
+                            ?>
+                            <tr>
+                                <td><?php echo $m['id_rub']?></td>
+                                <td><?php echo $m['libelle_rub']?></td>
+                                <td><?php echo $m['regle_de_calcul']?></td>
+                                <td>
+                                    <a href="#" class="settings" title="Modifier" data-toggle="modal" data-id=<?php echo $elem['ID_ETUD'];?> data-nom=<?php echo $elem['NOM'];?> data-prenom=<?php echo $elem['PRENOM'];?> data-image=<?php echo $elem['ETUD_IMAGE'];?> data-email=<?php echo $elem['EMAIL'];?> data-ville=<?php echo $elem['VILLE'];?> data-adresse=<?php echo $elem['ADRESSE'];?> data-dnaiss=<?php echo $elem['DATENAISS'];?> data-cne=<?php echo $elem['CNE'];?> data-cni=<?php echo $elem['CNI'];?>>
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="delete" title="Supprimer" data-toggle="tooltip"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                                
+                                
+                            <?php }?>

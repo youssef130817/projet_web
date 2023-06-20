@@ -2,7 +2,8 @@
 session_start();
 include('connect.php');
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Auth'])) {
+if (!isset($_SESSION['Cnx'])) 
+{
   header('location:index.php');
 } else {
   $id = $_SESSION['Cnx']['id_emp'];
@@ -36,8 +37,7 @@ if (!isset($_SESSION['Auth'])) {
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>profile</title>
   <link rel="stylesheet" href="includes/ajoutemp.css">
 </head>
 
@@ -127,7 +127,14 @@ if (!isset($_SESSION['Auth'])) {
       </div>
     </div>
   </div>
+  <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
   <script src="includes/modifierEmp.js"></script>
+  
+
 </body>
 
 </html>

@@ -36,3 +36,4 @@ if (isset($e)) {
         echo 'reinit.php';
     }
 }
+//okk

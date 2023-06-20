@@ -2,9 +2,8 @@
 session_start();
 include('connect.php');
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Auth'])) {
-    header('location:index.php');
-}
+if ($_SESSION['Cnx']['type'] !== 1)
+    header('location: index.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,6 +102,9 @@ if (!isset($_SESSION['Auth'])) {
             </div>
         </div>
     </div>
+    <footer>
+        <?php include('footer.html'); ?>
+    </footer>
     <script src="includes/ajouterEmp.js"></script>
 </body>
 

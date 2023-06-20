@@ -1,9 +1,8 @@
 <?php
 session_start();
 include('includes/RhMenu.html');
-if (!isset($_SESSION['Auth'])) {
+if ($_SESSION['Cnx']['type'] !== 1)
     header('location: index.php');
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,6 +54,12 @@ if (!isset($_SESSION['Auth'])) {
             </table>
         </section>
     </main>
+    <footer id="footer">
+        <?php
+        include('footer.html');
+        ?>
+    </footer>
 </body>
+
 
 </html>

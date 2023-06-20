@@ -1,7 +1,8 @@
 <?php
 session_start();
 include('connect.php');
-if (!isset($_SESSION['Auth'])) header('location:index.php');
+if ($_SESSION['Cnx']['type'] !== 1)
+  header('location: index.php');
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +64,7 @@ if (!isset($_SESSION['Auth'])) header('location:index.php');
         </div>
       </div>
     </div>
+    <?php include('footer.html'); ?>
     <script src="includes/ajouterEnt.js"></script>
   </body>
 

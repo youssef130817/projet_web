@@ -2,7 +2,7 @@
     session_start();
     include('connect.php');
     include('includes/RhMenu.html');
-    if(!isset($_SESSION['Auth']))
+    if(!isset($_SESSION['RH']))
     {
         header('location:index.php');
     }
@@ -80,6 +80,11 @@
             </div>
         </main>
     </form>
+    <footer id="footer">
+    <?php
+    include('footer.html');
+    ?>
+</footer>
 </body>
 
 <script>

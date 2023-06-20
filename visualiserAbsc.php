@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
 session_start();
-if (!isset($_SESSION['Auth'])) 
+if (!isset($_SESSION['Cnx'])) 
 {
     $_SESSION['page'] = $_SERVER['REQUEST_URI'];
 }
