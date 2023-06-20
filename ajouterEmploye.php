@@ -24,7 +24,7 @@ if (!isset($_SESSION['Auth'])) {
                 <div class="card-heading"></div>
                 <div class="card-body new">
                     <h2 class="title">Informations de l'employé</h2>
-                    <form method="POST" action="employetrait.php">
+                    <form method="POST" action="employetrait.php" enctype="multipart/form-data">
                         <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="Nom" name="nom">
                         </div>
@@ -78,11 +78,17 @@ if (!isset($_SESSION['Auth'])) {
                                 $mareq->execute();
                                 $mareqresult = $mareq->fetchALL(PDO::FETCH_ASSOC);
                                 foreach ($mareqresult as $m) {
-                                    echo "<option value='" . $m['nom_ent'] . "' >" . $m['nom_ent'] . "</option>";
+                                    echo "<option value='" . $m['id_ent'] . "' >" . $m['nom_ent'] . "</option>";
                                 }
                                 ?>
                             </select>
-                            <!-- <input class="input--style-1" type="text" placeholder="Poste" name="poste"> -->
+                        </div>
+                        <div class="input-group">
+                            <select name="type" id="" required>
+                                <option value="0">other</option>
+                                <option value="1">RH</option>
+                                <option value="2">RP</option>
+                            </select>
                         </div>
                         <div class="input-group">
                             <input class="input--style-1" type="file" placeholder="Selectionner une photo de l'employé" name="img">

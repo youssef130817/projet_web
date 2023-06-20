@@ -25,9 +25,9 @@ if (!isset($_SESSION['Auth'])) header('location:index.php');
           <div class="card-heading"></div>
           <div class="card-body new">
             <h2 class="title">Informations de l'entreprise</h2>
-            <form method="POST" action="ajouter.php">
+            <form method="POST" action="ajouter.php" enctype="multipart/form-data">
               <div class="input-group">
-                <input class="input--style-1" type="text" placeholder="Nom" name="noment">
+                <input class="input--style-1" id="nom" type="text" placeholder="Nom" name="noment">
               </div>
               <div class="input-group">
                 <input class="input--style-1" id="adresse" type="text" placeholder="Adresse" name="adresseent">
@@ -42,8 +42,9 @@ if (!isset($_SESSION['Auth'])) header('location:index.php');
                   $mareq->execute();
                   $mareqresult = $mareq->fetchALL(PDO::FETCH_ASSOC);
                   echo "<option value=''> Sans groupe </option>";
+                  echo "<option value='m'> entreprise mére </option>";
                   foreach ($mareqresult as $m) {
-                    echo "<option value='" . $m['groupe.id_groupe'] . "' >" . $m['Libelle_gr'] . "</option>";
+                    echo "<option value='" . $m['id_groupe'] . "' >" . $m['Libelle_gr'] . "</option>";
                   }
                   ?>
                 </select>
@@ -57,12 +58,6 @@ if (!isset($_SESSION['Auth'])) header('location:index.php');
               <div class="p-t-20 button">
                 <input type=submit class="btn btn--radius btn--green" name="ajouterent" value="Ajouter">
               </div>
-
-              <!-- if($_GET['ent_ajoute'])
-            {
-              echo "<div><p>Entreprise ajoutée avec succés </p> <img src='Accepter.png' alt=''></div>";
-            } -->
-
             </form>
           </div>
         </div>

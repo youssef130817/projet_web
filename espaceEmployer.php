@@ -104,7 +104,7 @@
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-plus-circle"></i></div>
-                <h4><a href="" >Visualiser Congés</a></h4>
+                <h4><a href="visualiserConge.php" >Visualiser Congés</a></h4>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
@@ -122,7 +122,7 @@
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-window-close"></i></div>
-                <h4><a href="" >Visualiser Heures supplimentaires</a></h4>
+                <h4><a href="visualiserHs.php" >Visualiser Heures supplimentaires</a></h4>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
@@ -140,13 +140,13 @@
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-window-close"></i></div>
-                <h4><a href="" >Visualiser Abscence</a></h4>
+                <h4><a href="visualiserAbsc.php" >Visualiser Abscence</a></h4>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-window-close"></i></div>
-                <h4><a href="" > Saisir Abscence</a></h4>
+                <h4><a href="saisirAbsc.php" > Saisir Abscence</a></h4>
             </div>
         </div>
     </div>
