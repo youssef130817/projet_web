@@ -16,13 +16,23 @@
                     <form action="traitementheuressupp.php" method="POST">
                         <div class="input-group">
                         <label for="type_jour">Type de jour :</label>
-                            <input class="input--style-1" type="text" id="type_jour" placeholder="Type de jour" name="type_jour">
+                        <select class="input--style-1" id="type" name="type">
+                                    <option value="ferier">Jour ferier</option>
+                                    <option value="normal">Jour Normal</option>
+                         </select> 
                         </div>
+                        <div class="input-group">
+                        <label for="time_jour">Temps :</label>
+                        <select class="input--style-1" id="time" name="time">
+                                    <option value="jour">Jour</option>
+                                    <option value="nuit">Nuit</option>
+                         </select> 
+                        </div>
+                    
                         <div class="input-group">
                         <label for="nbr_heures">Nombre d'heures :</label>
                             <input class="input--style-1"type="number" id="nbr_heures" name="nbr_heures">
                         </div>
-
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit" name="ajouter">Ajouter les heures supplémentaires</button>
                         </div>
