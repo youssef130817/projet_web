@@ -2,8 +2,8 @@
 session_start();
 include('connect.php');
 include('includes/RhMenu.html');
-if ($_SESSION['Cnx']['type'] !== 1)
-    header('location: index.php');
+if ($_SESSION['Cnx']['type'] != 2) header('location: index.php');
+
 if (isset($_POST['ValiderModif'])) {
     $l = $_POST['lib'];
     $r = $_POST['reg'];

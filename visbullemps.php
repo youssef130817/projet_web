@@ -35,7 +35,7 @@
                     <div class="row">
                     <div class="col-sm-5">
                         <h2>Liste des <b>employés par entreprise</b></h2> 
-                        <select name="selectent" id="selectionemp" onchange="RecupererValeurSelectForBP()">
+                        <select name="selectent" id="selectionent1" onchange="RecForVisBullsEmps()">
                         <option selected disabled>selection une entreprise</option>
                         <?php
                             $vr=$_SESSION['Cnx']['id_emp'];
@@ -57,10 +57,11 @@
                             };
                         ?>
                         </select>
+                        <div id="messageselection"></div>
                     </div>
                 </div>
             </div>
-            <div id="tableauResultatemp"></div>
+            <div id="tableauResultatemp2"></div>
         </div>
     </div>
     </div>
@@ -70,7 +71,7 @@
     <?php
     include('footer.html');
     ?>
-</footer>
+</footer><!-- End Footer -->
 
 <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>

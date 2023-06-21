@@ -10,13 +10,30 @@ function RecupererValeurSelectForBP()
     var slctelm=document.getElementById("selectionemp");
     var valslct=slctelm.value;
     AfficherTableauEmp(valslct);
+    
 }
 
+function RecForVisBullsEmps()
+{
+    var slctelm=document.getElementById("selectionent1");
+    var valslct=slctelm.value;
+    AfficherOtherSelectForEmps(valslct);
+}
+
+function AfficherOtherSelectForEmps(data)
+{
+    $.get("get_data_VisBP.php?valslct="+data,function(rep)
+    {
+        $("#messageselection").html("<h2><b>Veillez choisir un employé</b></h2> ");
+        $("#tableauResultatemp2").html(rep);
+    });
+}
 function AfficherTableauEmp(data)
 {
     $.get("get_data_Bp.php?valslct="+data,function(rep)
     {
         $("#tableauResultatemp").html(rep);
+    
     });
 }
 
@@ -36,7 +53,7 @@ function Generer_Bp()
         var adsoc = $(this).data('adrsoc');
         var cnsscos = $(this).data('cnsscos'); 
         var idemp=$(this).data('idemp'); 
-        var sbase=$(this).data('Sbase'); 
+        var sbase=$(this).data('salaire'); 
         var nomemp=$(this).data('nomemp'); 
         var premp=$(this).data('premp'); 
         var cin=$(this).data('cin'); 
@@ -46,12 +63,11 @@ function Generer_Bp()
         var modep=$(this).data('modep'); 
         var nbrenf=$(this).data('nbrenf'); 
         
-
         $("#input-nomsoc").val(nomsoc);
         $("#input-adsoc").val(adsoc);
         $("#input-cnsscos").val(cnsscos);
         $("#input-idemp").val(idemp);
-        $("#input-sbase").text(sbase);
+        $("#input-salbase").val(sbase);
         $("#input-nomemp").val(nomemp);
         $("#input-prenemp").val(premp);
         $("#input-cinemp").val(cin);
@@ -60,9 +76,46 @@ function Generer_Bp()
         $("#input-dnemp").val(daten);
         $("#input-modep").val(modep);
         $("#input-nbreemp").val(nbrenf);
+        
+        var a=Calculer(1,sbase);
+        var c=Calculer(3,sbase);
+        var b=CalculerIGR(sbase,1,3);
+        var s=(sbase-a-b-c);
+        $("#input-salnet").val(s)
+        $("#1").val(a);
+        $("#2").val(b);
+        $("#3").val(c);
         $("#BulletinPaie").modal("show");
     });
 }
+
+function CalculerIGR(salairebase,cnss,amo)
+{
+    var calc;
+    var abb;
+    var FP;
+    if(salairebase<=6500) FP=salairebase*0.35;
+    else FP=salairebase*0.25;
+    if((salairebase<=2500) && (0<=salairebase)) abb=0;
+    else if((salairebase<=4166) && (2501<=salairebase)) abb=250;
+    else if((salairebase<=5000) && (4167<=salairebase)) abb=666.67;
+    else if((salairebase<=6666) && (5001<=salairebase)) abb=1166.67;
+    else if((salairebase<=15000) && (6667<=salairebase)) abb=1433.33;
+    else abb=2033.33;
+    calc=((salairebase-cnss-amo-FP)*0.34)-abb;
+    return calc;
+}
+function Calculer(a,salairbase)
+    {
+        var calc;
+        switch(a)
+        {
+            case 1 : calc=salairbase*0.0448;
+                    return calc;
+            case 3 :calc=salairbase *0.0228;
+                    return calc;
+        }
+    }
 
 function Modifier()
 {
@@ -78,12 +131,6 @@ function Modifier()
     });
 }
 
-function AjouterRub()
-{
-    var name=document.getElementById("addnom").value;
-    var type=document.getElementById("GR").value;
-    var regle=document.getElementById("formulaInput").value;
-}
 
 
 // function ValiderChangement()

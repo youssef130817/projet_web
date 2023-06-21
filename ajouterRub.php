@@ -1,10 +1,32 @@
 <?php
-session_start();
-include('connect.php');
-include('includes/RhMenu.html');
-if ($_SESSION['Cnx']['type'] !== 1)
-    header('location: index.php');
+    session_start();
+    include('connect.php');
+    include('includes/RhMenu.html');
 
+    if ($_SESSION['Cnx']['type'] != 2) {
+        header('location: index.php');
+    }
+    if(isset($_POST['Valider']))
+    {
+        $entslct=$_POST['entaff'];
+        $rub=$_POST['Rubaff'];
+        $req=$bdd->prepare("SELECT * FROM calcul,rubrique where rubrique.libelle_rub='$rub' and calcul.id_ent='$entslct'
+                            and calcul.id_rub=rubrique.id_rub");
+        $req->execute();
+        $res=$req->fetchAll(PDO::FETCH_ASSOC);
+        if($req->rowCount()==0)
+        { 
+            $req4=$bdd->prepare("SELECT id_rub FROM rubrique where libelle_rub='$rub'");
+            $req4->execute();
+            $res2=$req4->fetch(PDO::FETCH_ASSOC);
+            $id=$res2['id_rub'];
+            if(strcmp($rub,"CNSS") == 0) $req3=$bdd->prepare("INSERT INTO calcul VALUES ($entslct,$id,'SB*0.0448')");
+            else if(strcmp($rub,"IGR") == 0) $req3=$bdd->prepare("INSERT INTO calcul VALUES ($entslct,$id,'((SB-CNSS-AMO-FP)*TIR)-ABBAT')");
+            else if(strcmp($rub,"AMO") == 0) $req3=$bdd->prepare("INSERT INTO calcul VALUES ($entslct,$id,'SB*0.0226')");
+            $req3->execute();
+        }
+        else echo "<div style='color:red'>rubrique deja affecté a l entreprise</div>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,65 +41,66 @@ if ($_SESSION['Cnx']['type'] !== 1)
 </head>
 
 <body>
-    <form method="post">
+    <form method="post" action="ajouterRub.php">
         <div class="page-wrapper p-t-100 p-b-100 font-robo">
             <div class="wrapper wrapper--w680">
                 <div class="card card-1">
                     <div class="card-heading"></div>
                     <div class="card-body">
                         <h2 class="title">Nouvelle Rubrique de paie</h2>
-
-                        <div class="input-group">
+                        <!-- <div class="input-group">
                             <input class="input--style-1" type="text" placeholder="Libelle rubrique" id="addnom" name="nomrub">
-                        </div>
-                        <div class="input-group">
+                        </div> -->
+                        <!-- <div class="input-group">
                             <select name="typerub" class="form-select">
                                 <option value="G">Gain</option>
                                 <option value="R">Retenue</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="input-group">
                             <select name="entaff" class="form-select" id="GR">
                                 <?php
-                                $vr = $_SESSION['Cnx']['id_emp'];
-                                $req = $bdd->prepare("SELECT id_ent from comptes where id_emp='$vr'");
-                                $req->execute();
-                                $mareqresult = $req->fetch(PDO::FETCH_ASSOC);
-                                if ($req->rowCount() == 1) {
-                                    $vr2 = $mareqresult['id_ent'];
-                                    $req2 = $bdd->prepare("SELECT nom_ent,id_ent from entreprise where id_ent='$vr2'");
-                                    $req2->execute();
-                                    $rr = $req2->fetch(PDO::FETCH_ASSOC);
-                                    echo "<option value='" . $rr['id_ent'] . "' >" . $rr['nom_ent'] . "</option>";
+                                    $vr = $_SESSION['Cnx']['id_emp'];
+                                    $req = $bdd->prepare("SELECT  entreprise.id_ent,entreprise.nom_ent,id_gr from comptes,entreprise where comptes.id_emp='$vr' and comptes.id_ent=entreprise.id_ent");
+                                    $req->execute();
+                                    $mareqresult = $req->fetch(PDO::FETCH_ASSOC);
+                                    $vr2=$mareqresult['id_gr'];
+                                    if(!$vr2) echo "<option value='".$mareqresult['id_ent']."' >".$mareqresult['nom_ent']."</option>";
+                                    else
+                                    {
+                                        $req2=$bdd->prepare("SELECT id_ent,nom_ent from entreprise
+                                                        where id_gr='$vr2'");
+                                        $req2->execute();
+                                        $mareqresult2=$req2->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($mareqresult2 as $mk) 
+                                {
+                                    echo "<option value='".$mk['id_ent']."' >".$mk['nom_ent']."</option>";
+                                }
                                 }
                                 ?>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="Regle">Regle de calcul : </label>
                             <label for="">Si vous voulez saisir une chaine de caractère, veillez utiliser la liste des choix multiples et le button +</label>
-                        </div>
-                        <div class="input-group">
+                        </div> -->
+                        <!-- <div class="input-group">
                             <input type="text" class="form-control" id="formulaInput" placeholder="Saisissez une formule">
-                        </div>
+                        </div> -->
                         <div class="input-group">
-                            <select class="form-select" id="formulaChoices">
-                                <option selected disabled>Caractère/Chaine de caracts</option>
-                                <option value="SB">Salaire de base</option>
-                                <option value="SN">Salaire Net</option>
-                                <option value="+">+</option>
-                                <option value="-">-</option>
-                                <option value="*">*</option>
-                                <option value="/">/</option>
-                                <option value="(">(</option>
-                                <option value=")">)</option>
+                            <select class="form-select" name="Rubaff">
+                                <option selected disabled>Choisissez la rubrique à affecter</option>
+                                <option value="CNSS">CNSS</option>
+                                <option value="IGR">IGR</option>
+                                <option value="AMO">AMO</option>
+                                <!-- <option value="PI">Prime Imposable</option> -->
+                                <!-- <option value="PNI">Prime Non Imposable</option> -->
                             </select>
-                            <button class="btn btn--radius btn--green" id="addChoiceBtn"><i class="fa fa-plus"></i></button>
                         </div>
                         <div id="formulaPreview"></div>
                         <div class="p-t-20">
                             <span>
-                                <button class="btn btn--radius btn--green" type="submit" onclick="AjouterRub()" name="Valider">Valider</button>
+                                <button class="btn btn--radius btn--green" type="submit" name="Valider">Valider</button>
                             </span>
                         </div>
                     </div>
@@ -86,8 +109,9 @@ if ($_SESSION['Cnx']['type'] !== 1)
         </div>
     </form>
 </body>
-<script src="traitrub.js"></script>
-<script>
+<!-- <script src="traitrub.js"></script> -->
+
+<!-- <script>
     var formulaInput = document.getElementById('formulaInput');
     var formulaChoices = document.getElementById('formulaChoices');
     var addChoiceBtn = document.getElementById('addChoiceBtn');
@@ -117,6 +141,5 @@ if ($_SESSION['Cnx']['type'] !== 1)
             event.preventDefault();
         }
     });
-</script>
-
+</script> -->
 </html>

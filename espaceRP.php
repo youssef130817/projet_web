@@ -48,7 +48,7 @@ if ($_SESSION['Cnx']['type'] != 2) {
                 <div class="col-xl-4 col-md-4">
                     <div class="icon-box">
                         <i class="ri-bar-chart-box-line"></i>
-                        <h3><a href="#">Visualiser les bulletins de paie</a></h3>
+                        <h3><a href="visbullemps.php">Visualiser les bulletins de paie</a></h3>
                     </div>
                 </div>
             </div>

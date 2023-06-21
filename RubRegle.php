@@ -2,9 +2,9 @@
     session_start();
     include('connect.php');
     include('includes/RhMenu.html');
-    if(!isset($_SESSION['Auth']))
-    {
-        header('location:index.php');
+    
+    if ($_SESSION['Cnx']['type'] != 2) {
+        header('location: index.php');  
     }
 ?>
 <!DOCTYPE html>

@@ -7,11 +7,7 @@
                             where calcul.id_ent='$vs' and rubrique.id_rub=calcul.id_rub GROUP BY rubrique.id_rub ");
         $req3->execute();
         $mareqresult3=$req3->fetchAll(PDO::FETCH_ASSOC);
-
-        
     } 
-
-    
 ?>
 <table class="table table-striped table-hover">
     <thead>
