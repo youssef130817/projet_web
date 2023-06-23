@@ -14,8 +14,12 @@ if ($_SESSION['Cnx']['type'] == 0)
 </head>
 
 <body>
-    <main>
-        <div class="main">
+<main>
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">Traiter reclamation</div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <div class="main">
             <?php
             require 'connect.php';
             $idrec = $_POST['id_rec'];
@@ -43,6 +47,9 @@ if ($_SESSION['Cnx']['type'] == 0)
             echo '</div>';
             ?>
         </div>
+  </div>
+</div>
+        
     </main>
     <footer id="footer">
         <?php
