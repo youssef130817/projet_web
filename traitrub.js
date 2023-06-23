@@ -5,6 +5,8 @@ function RecupererValeurSelectUpdateRub()
     AfficherTableauUpRub(valslct);
 }
 
+
+
 function RecupererValeurSelectForBP()
 {
     var slctelm=document.getElementById("selectionemp");
@@ -19,6 +21,8 @@ function RecForVisBullsEmps()
     var valslct=slctelm.value;
     AfficherOtherSelectForEmps(valslct);
 }
+
+
 
 function AfficherOtherSelectForEmps(data)
 {
@@ -46,48 +50,11 @@ function AfficherTableauUpRub(data)
     });
 }
 
-function Generer_Bp()
-{
-    $(".settings").click(function() {
-        var nomsoc = $(this).data('nomsoc');
-        var adsoc = $(this).data('adrsoc');
-        var cnsscos = $(this).data('cnsscos'); 
-        var idemp=$(this).data('idemp'); 
-        var sbase=$(this).data('salaire'); 
-        var nomemp=$(this).data('nomemp'); 
-        var premp=$(this).data('premp'); 
-        var cin=$(this).data('cin'); 
-        var sfam=$(this).data('sfam'); 
-        var cnssemp=$(this).data('cnssemp'); 
-        var daten=$(this).data('daten'); 
-        var modep=$(this).data('modep'); 
-        var nbrenf=$(this).data('nbrenf'); 
-        
-        $("#input-nomsoc").val(nomsoc);
-        $("#input-adsoc").val(adsoc);
-        $("#input-cnsscos").val(cnsscos);
-        $("#input-idemp").val(idemp);
-        $("#input-salbase").val(sbase);
-        $("#input-nomemp").val(nomemp);
-        $("#input-prenemp").val(premp);
-        $("#input-cinemp").val(cin);
-        $("#input-sfamemp").val(sfam);
-        $("#input-cnssemp").val(cnssemp);
-        $("#input-dnemp").val(daten);
-        $("#input-modep").val(modep);
-        $("#input-nbreemp").val(nbrenf);
-        
-        var a=Calculer(1,sbase);
-        var c=Calculer(3,sbase);
-        var b=CalculerIGR(sbase,1,3);
-        var s=(sbase-a-b-c);
-        $("#input-salnet").val(s)
-        $("#1").val(a);
-        $("#2").val(b);
-        $("#3").val(c);
-        $("#BulletinPaie").modal("show");
-    });
-}
+
+
+
+
+    
 
 function CalculerIGR(salairebase,cnss,amo)
 {

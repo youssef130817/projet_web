@@ -1,3 +1,4 @@
+
 <?php
     include('connect.php');
     if(isset($_GET['valslct']))
@@ -12,6 +13,33 @@
         $mareqresult3=$req3->fetchAll(PDO::FETCH_ASSOC);
         if($req3->rowCount()==0) echo "<div style='color:red'>Bulletin de paie deja genérée pour le mois courant</div>";
     } 
+    
+    if(isset($_GET['Excel']))
+    {
+        $nomemp=$_POST['nomemp'];
+        $data=array($nomemp=$_POST['nomemp']);
+        Generer_Excel($data,$name);
+    }
+    function Generer_Excel($dt,$nm)
+    {
+        $NomF = $nm.".xls";
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$NomF);
+        $TitresColonnes = false;
+        if(!empty($dt)) 
+        {
+            foreach($dt as $info) 
+            {
+                if(!$TitresColonnes) 
+                {
+                    echo implode("\t", array_keys($info)) . "\n";
+                    $TitresColonnes = true;
+                }
+                echo implode("\t", array_values($info)) . "\n";
+            }
+        }
+        exit();
+    }
 ?>
 
 <table class="table table-striped table-hover">
@@ -53,16 +81,18 @@
 		<?php }?>		
     </tbody>
 </table>
-
 <div class="modal fade" id="BulletinPaie" tabindex="-1" role="dialog" aria-labelledby="ModifierModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" >
         <div class="modal-content"  style="width:1500px; margin-left:-300px">
             <div class="modal-body">
+            <div class="col-sm-7">
+                <a class="btn btn-secondary" onclick="Excel()"><i class="material-icons">&#xE24D;</i> <span>Exporter en EXCEL</span></a>					
+            </div>
                 <div class="main-content text-center">
                     <div class="warp-icon mb-4">
                         <span class="icon-lock2"></span>
                     </div>
-                    <form action="paie.php" method="POST">
+                    <form action="paie.php" method="POST" id="new">
                         <h2><b>BULLETIN DE PAIE</b></h2>
                         <table border="solid 1px">
                             <thead>
@@ -72,7 +102,12 @@
                                 </tr>
                                 <tr>
                                     <th>Num cnss societe :<input type="text" id="input-cnsscos" class="" name="cnsscos" readonly></th>
-                                    <th>Date paie : <!--code php --></th>
+                                    <th>Date paie : 
+                                        <?php  
+                                            $dateCourante = date('m/Y');
+                                            echo $dateCourante;
+                                        ?>
+                                    </th>
                                 </tr>
                             </thead>
                         </table>
@@ -87,12 +122,12 @@
                                 <!-- <td>N.Ded</td> -->
                             </tr>
                             <tr>
-                                <td><input type="text" id="input-idemp" class="" name="idemp" readonly></td>
-                                <td><input type="text" id="input-nomemp" class=""  readonly></td>
-                                <td><input type="text" id="input-prenemp" class=""  readonly></td>
-                                <td><input type="text" id="input-cinemp" class=""  readonly></td>
-                                <td><input type="text" id="input-sfamemp" class=""  readonly></td>
-                                <td><input type="text" id="input-nbreemp" class=""  readonly></td>
+                                <td><input type="text" id="input-idemp" name="idemp" readonly></td>
+                                <td><input type="text" id="input-nomemp" name="nomemp"  readonly></td>
+                                <td><input type="text" id="input-prenemp" name="prenemp"  readonly></td>
+                                <td><input type="text" id="input-cinemp" name="cinemp"  readonly></td>
+                                <td><input type="text" id="input-sfamemp" name="sfaemp"  readonly></td>
+                                <td><input type="text" id="input-nbreemp" name="nbreemp"  readonly></td>
                             </tr>
                             <tr>
                                 <td>CNSS</td>
@@ -103,10 +138,10 @@
                                 <!-- <td>T.Mutuel</td> -->
                             </tr>
                             <tr>
-                                <td><input type="text" id="input-cnssemp" class="" readonly></td>
-                                <td><input type="text" id="input-dnemp" class="" readonly></td>
-                                <td><input type="text" id="input-modep" class="" readonly></td>
-                                <td><input type="text" id="input-Anc" class=""  readonly></td>
+                                <td><input type="text" id="input-cnssemp" name="cnssemp" readonly></td>
+                                <td><input type="text" id="input-dnemp" name="dnemp" readonly></td>
+                                <td><input type="text" id="input-modep" name="modp" readonly></td>
+                                <!-- <td><input type="text" id="input-Anc"   readonly></td> -->
                                 <!-- <td><input type="text" id="input-salbase" class=""  readonly></td> -->
                                 
                                 <!-- <td><input type="text" id="input-idemp" class="" name="idemp" readonly></td> -->
@@ -133,7 +168,7 @@
                                             <td>0</td>
                                             <td>Salaire de base</td>
                                             <td>G</td>
-                                            <td><input type='text' id='input-salbase' readonly></td>
+                                            <td><input type='text' id='input-salbase' name='salbase' readonly></td>
                                             </tr>";
                                     $t=0;
                                     foreach($res as $r)
@@ -142,7 +177,7 @@
                                             <td>$r[id_rub]</td>
                                             <td>$r[libelle_rub]</td>
                                             <td>$r[type]</td>
-                                            <td><input type='text' id='".$r['id_rub']."' readonly></td>
+                                            <td><input type='text' id='".$r['id_rub']."' name='".$r['id_rub']."' readonly></td>
                                             </tr>";
                                         $t++;
                                     }
@@ -152,14 +187,105 @@
                         <label><h2>Salaire Net : </h2></label>
                         <input type='text' id='input-salnet' readonly>
                         <div class="mx-auto">
-                        <button type="submit" class="btn btn-success" name=""> 
-                            <i class="fa fa-check-circle" aria-hidden="true"></i>
-                            Valider 
-                        </button>
+                        <div class="col-sm-7">
+                            <a class="btn btn-secondary" onclick="ValiderBp()">Valider</a>					
+                        </div>
                     </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script >
+var nomsoc;
+        var adsoc;
+        var cnsscos; 
+        var idemp; 
+        var sbase; 
+        var nomemp;
+        var premp;
+        var cin;
+        var sfam;
+        var cnssemp;
+        var daten;
+        var modep;
+        var nbrenf;
+        var date = new Date();
+        var jour = date.getDate();
+        var mois = date.getMonth() + 1; // Les mois commencent à partir de 0, donc on ajoute 1
+        var annee = date.getFullYear();
+        var moisAnnee =annee + '-' + mois + '/' + jour;
+        var salnet;
+function Generer_Bp()
+{
+    $(".settings").click(function() {
+        nomsoc = $(this).data('nomsoc');
+        adsoc = $(this).data('adrsoc');
+        cnsscos = $(this).data('cnsscos'); 
+        idemp=$(this).data('idemp'); 
+        sbase=$(this).data('salaire'); 
+        nomemp=$(this).data('nomemp'); 
+        premp=$(this).data('premp'); 
+        cin=$(this).data('cin'); 
+        sfam=$(this).data('sfam'); 
+        cnssemp=$(this).data('cnssemp'); 
+        daten=$(this).data('daten'); 
+        modep=$(this).data('modep'); 
+        nbrenf=$(this).data('nbrenf'); 
+        
+        $("#input-nomsoc").val(nomsoc);
+        $("#input-adsoc").val(adsoc);
+        $("#input-cnsscos").val(cnsscos);
+        $("#input-idemp").val(idemp);
+        $("#input-salbase").val(sbase);
+        $("#input-nomemp").val(nomemp);
+        $("#input-prenemp").val(premp);
+        $("#input-cinemp").val(cin);
+        $("#input-sfamemp").val(sfam);
+        $("#input-cnssemp").val(cnssemp);
+        $("#input-dnemp").val(daten);
+        $("#input-modep").val(modep);
+        $("#input-nbreemp").val(nbrenf);
+        
+        
+
+
+        var a=Calculer(1,sbase);
+        var c=Calculer(3,sbase);
+        var b=CalculerIGR(sbase,1,3);
+         salnet=(sbase-a-b-c);
+        $("#input-salnet").val(salnet)
+        $("#1").val(a);
+        $("#2").val(b);
+        $("#3").val(c);
+        $("#BulletinPaie").modal("show");
+    });
+}
+        
+        // var salnet=$("#input-salnet").val();
+        const form =document.getElementById("new");
+    console.log(form);
+    function ValiderBp() 
+    {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "traitBULLP.php", true);
+    xhr.onload = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) 
+        {
+            if (xhr.status === 200) 
+            {
+                let data = xhr.response;
+                console.log(data);
+            }
+        }
+    }
+    let formData = new FormData(form);
+    formData.append('idemp', idemp);
+    formData.append('moisAnnee', moisAnnee);
+    formData.append('salnet', salnet);
+    xhr.send(formData);
+}
+</script>
 </div>
+
+
