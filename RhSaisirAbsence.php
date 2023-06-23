@@ -28,7 +28,7 @@
                             <label for="commentaire">Nombres d'heures :</label>
                             <input class="input--style-1" type="number" id="nbr_heures" name="nbr_heures">
                         </div>
-                        <?php echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">'; ?>
+                        <?php echo '<input type="hidden" name="id" value="' . $_POST["ida"] . '">'; ?>
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit" name="ajouter">Envoyer</button>
                         </div>

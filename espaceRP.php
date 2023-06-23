@@ -36,7 +36,7 @@ if ($_SESSION['Cnx']['type'] != 2) {
                 <div class="col-xl-4 col-md-4">
                     <div class="icon-box">
                         <i class="ri-bar-chart-box-line"></i>
-                        <h3><a href="DemRecRP.php">Gestion des demandes et réclamations</a></h3>
+                        <h3><a href="RhReclamation.php">Gestion des réclamations</a></h3>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-4">

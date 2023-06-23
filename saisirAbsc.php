@@ -1,3 +1,9 @@
+<?php
+session_start();
+include('includes/RhMenu.html');
+if (!isset($_SESSION['Cnx']))
+    header('location: index.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +34,8 @@
                             <label for="commentaire">Nombres d'heures :</label>
                             <input class="input--style-1" type="number" id="nbr_heures" name="nbr_heures">
                         </div>
-                        <?php echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">'; ?>
+                        <?php if (isset($_POST['id']))
+                            echo '<input type="hidden" name="id" value="' . $_POST["id"] . '">'; ?>
                         <div class="p-t-20">
                             <button class="btn btn--radius btn--green" type="submit" name="ajouter">Envoyer</button>
                         </div>

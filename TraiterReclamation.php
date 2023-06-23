@@ -1,15 +1,16 @@
 <?php
 session_start();
 include('includes/RhMenu.html');
-if (!isset($_SESSION['RH'])) {
+if ($_SESSION['Cnx']['type'] == 0)
     header('location: index.php');
-}
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <link rel="stylesheet" href="includes/RhMenu.css">
+    <!--link rel="stylesheet" href="includes/TraitRec.css"-->
+
 </head>
 
 <body>
@@ -29,7 +30,7 @@ if (!isset($_SESSION['RH'])) {
             echo ' <form method="post">';
             echo ' <label class="label_coment" for="comment">Reponse : </label>
             <p>' . $row['reponse'] . '</p>
-            <input type="text" name="comment" class="cmt" class="comment">';
+            <input type="text" name="comment" class="cmt" >';
             echo '<p class="err"></p>';
             echo '<p class="ok"></p>';
             echo '  <div>
@@ -44,10 +45,10 @@ if (!isset($_SESSION['RH'])) {
         </div>
     </main>
     <footer id="footer">
-    <?php
-    include('footer.html');
-    ?>
-</footer>
+        <?php
+        include('footer.html');
+        ?>
+    </footer>
     <script src="includes/TraiterReclamation.js"></script>
 </body>
 

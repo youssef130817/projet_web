@@ -8,7 +8,7 @@ if (isset($_POST['btn'])) {
     if ($npwd1 == $npwd2) {
         $req = $bdd->prepare("UPDATE `comptes` set motdepasse='$npwd2',etat=1 WHERE username='$login'");
         $req->execute();
-        header('location:http://localhost:8080/projet_web/index.php');
+        header('location:index.php');
     }
 }
 
@@ -62,10 +62,10 @@ if (isset($_POST['btn'])) {
         </div>
     </form>
     <footer id="footer">
-    <?php
-    include('footer.html');
-    ?>
-</footer>
+        <?php
+        include('footer.html');
+        ?>
+    </footer>
 </body>
 
 </html>

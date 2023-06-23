@@ -44,7 +44,7 @@ if ($_SESSION['Cnx']['type'] !== 1) {
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-window-close"></i></div>
-                            <h4><a href="RhAbsence.php">Saisir absences </a></h4>
+                            <h4><a href="RhAbsence.php">Valider Demandes absences </a></h4>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
@@ -63,12 +63,6 @@ if ($_SESSION['Cnx']['type'] !== 1) {
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-window-close"></i></div>
                             <h4><a href="RhReclamation.php">Traiter les réclamations</a></h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bx bx-window-close"></i></div>
-                            <h4><a href="">Heures supplémentaires</a></h4>
                         </div>
                     </div>
                 </div>

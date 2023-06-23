@@ -1,10 +1,10 @@
 <?php
 session_start();
 include('connect.php');
+include('includes/RhMenu.html');
 if ($_SESSION['Cnx']['type'] !== 1)
   header('location: index.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

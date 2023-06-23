@@ -16,7 +16,9 @@ $date_naissance = $_POST['dateN'];
 $date_embauche = $_POST['dateEm'];
 $mode_paiment = $_POST['mode'];
 $poste = $_POST['poste'];
-
+$id_ent = $_POST['entreprise'];
+$req = $bdd->prepare("UPDATE `comptes` SET `id_ent` = '$id_ent' where id_emp='$id'");
+$req->execute();
 if (isset($_FILES['img']) && $_FILES['img']['error'] == UPLOAD_ERR_OK) {
     $file = $_FILES['img'];
     $img = $file['name'];
@@ -40,4 +42,5 @@ if (isset($_FILES['img']) && $_FILES['img']['error'] == UPLOAD_ERR_OK) {
         where id_emp='$id'");
     $req->execute();
 }
+
 echo "information modifiés";
